@@ -12,7 +12,11 @@ export function SiteHeader() {
   return (
     <header className="dark-surface sticky top-0 z-50 border-b border-white/10 bg-navy-900">
       <Container className="flex h-(--spacing-header) items-center justify-between gap-6">
-        <Link href="/" className="shrink-0 rounded-xs" aria-label="Acail Gás — página inicial">
+        <Link
+          href="/"
+          className="shrink-0 rounded-xs"
+          aria-label="Acail Gás Solucions — página inicial"
+        >
           <Logo />
         </Link>
         <DesktopNav groups={primaryNavigation} />

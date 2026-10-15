@@ -56,6 +56,7 @@ export default async function ProductCategoryPage({ params }: PageProps<"/produt
   const next = productCategories[(position + 1) % productCategories.length];
   const tiles = heroTiles(category);
   const modes = category.supplyModes.map(getSupplyMode);
+  const hasApplications = category.applications.length > 0;
   const relatedIndustries = category.industries.flatMap((slug) => {
     const industry = getIndustry(slug);
     return industry ? [industry] : [];
@@ -95,8 +96,12 @@ export default async function ProductCategoryPage({ params }: PageProps<"/produt
         <ButtonLink href={contactHref("proposta", category.slug)} tone="dark">
           Pedir proposta
         </ButtonLink>
-        <ButtonLink href={contactHref("fds", category.slug)} tone="dark" variant="secondary">
-          Pedir ficha de segurança
+        <ButtonLink
+          href={contactHref("informacao-tecnica", category.slug)}
+          tone="dark"
+          variant="secondary"
+        >
+          Pedir informação técnica
         </ButtonLink>
       </PageHero>
 
@@ -152,78 +157,113 @@ export default async function ProductCategoryPage({ params }: PageProps<"/produt
                   {category.mixtures.description}
                 </p>
                 <ArrowLink href={contactHref("informacao-tecnica", category.slug)} className="mt-6">
-                  Pedir composição e ficha técnica
+                  Pedir informação técnica
                 </ArrowLink>
               </div>
-              <ul className="flex flex-wrap content-start gap-2 lg:col-span-6 lg:col-start-7">
-                {category.mixtures.names.map((name) => (
-                  <li
-                    key={name}
-                    className="rounded-xs border border-steel-300 bg-white px-3 py-2 font-mono text-sm tracking-[0.04em] text-navy-900"
-                  >
-                    {name}
-                  </li>
-                ))}
-              </ul>
+              <div
+                role="region"
+                aria-label={category.mixtures.title}
+                tabIndex={0}
+                className="overflow-x-auto lg:col-span-7 lg:col-start-6"
+              >
+                <table className="w-full min-w-[34rem] text-left text-sm">
+                  <caption className="sr-only">{category.mixtures.title}</caption>
+                  <thead>
+                    <tr className="border-b border-steel-300 font-mono text-[0.6875rem] tracking-[0.08em] text-steel-500 uppercase">
+                      <th scope="col" className="py-3 pr-4 font-normal">
+                        Mistura
+                      </th>
+                      <th scope="col" className="py-3 pr-4 font-normal">
+                        Composição
+                      </th>
+                      <th scope="col" className="py-3 font-normal">
+                        Utilização
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {category.mixtures.entries.map((entry) => (
+                      <tr key={entry.name} className="border-b border-steel-200 align-top">
+                        <th scope="row" className="py-3 pr-4 font-mono font-medium text-navy-900">
+                          {entry.name}
+                        </th>
+                        <td className="py-3 pr-4 text-steel-700">
+                          {entry.composition ?? "—"}
+                          {entry.standard ? (
+                            <span className="block text-xs text-steel-500">{entry.standard}</span>
+                          ) : null}
+                        </td>
+                        <td className="py-3 text-steel-700">{entry.use ?? "—"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </Container>
         ) : null}
       </Section>
 
-      <Section tone="dark" aria-labelledby="aplicacoes">
-        <SectionHeader
-          id="aplicacoes"
-          tone="dark"
-          eyebrow="Aplicações"
-          index="02"
-          title="Onde são utilizados"
-        />
-        <Container>
-          <ApplicationsGrid items={category.applications} tone="dark" />
-        </Container>
-      </Section>
+      {hasApplications ? (
+        <Section tone="dark" aria-labelledby="aplicacoes">
+          <SectionHeader
+            id="aplicacoes"
+            tone="dark"
+            eyebrow="Aplicações"
+            index="02"
+            title="Onde são utilizados"
+          />
+          <Container>
+            <ApplicationsGrid items={category.applications} tone="dark" />
+          </Container>
+        </Section>
+      ) : null}
 
-      <Section aria-labelledby="fornecimento">
-        <Container className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-6">
-            <Eyebrow index="03" className="mb-5">
-              Fornecimento
-            </Eyebrow>
-            <h2 id="fornecimento" className="text-h2 text-navy-900">
-              Formas de fornecimento
-            </h2>
-            <div className="mt-10">
-              <SupplyModeList modes={modes} />
+      {modes.length > 0 || relatedIndustries.length > 0 ? (
+        <Section aria-labelledby="fornecimento">
+          <Container className="grid gap-14 lg:grid-cols-12">
+            <div className="lg:col-span-6">
+              <Eyebrow index={hasApplications ? "03" : "02"} className="mb-5">
+                Fornecimento
+              </Eyebrow>
+              <h2 id="fornecimento" className="text-h2 text-navy-900">
+                Formas de fornecimento
+              </h2>
+              <div className="mt-10">
+                <SupplyModeList modes={modes} />
+              </div>
+              <ArrowLink href={routes.services} className="mt-8">
+                Ver todos os serviços
+              </ArrowLink>
             </div>
-            <ArrowLink href={routes.services} className="mt-8">
-              Ver todos os serviços
-            </ArrowLink>
-          </div>
-          <div className="lg:col-span-5 lg:col-start-8">
-            <h2 className="font-mono text-label text-steel-500 uppercase">
-              Indústrias relacionadas
-            </h2>
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {relatedIndustries.map((industry) => (
-                <li key={industry.slug}>
-                  {industry.detail ? (
-                    <Link
-                      href={routes.industry(industry.slug)}
-                      className="inline-flex min-h-10 items-center rounded-sm border border-steel-300 px-4 text-[0.9375rem] text-navy-900 transition-colors hover:border-navy-800 hover:bg-navy-800 hover:text-white"
-                    >
-                      {industry.name}
-                    </Link>
-                  ) : (
-                    <span className="inline-flex min-h-10 items-center rounded-sm bg-steel-100 px-4 text-[0.9375rem] text-steel-600">
-                      {industry.name}
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Container>
-      </Section>
+            {relatedIndustries.length > 0 ? (
+              <div className="lg:col-span-5 lg:col-start-8">
+                <h2 className="font-mono text-label text-steel-500 uppercase">
+                  Indústrias relacionadas
+                </h2>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {relatedIndustries.map((industry) => (
+                    <li key={industry.slug}>
+                      {industry.detail ? (
+                        <Link
+                          href={routes.industry(industry.slug)}
+                          className="inline-flex min-h-10 items-center rounded-sm border border-steel-300 px-4 text-[0.9375rem] text-navy-900 transition-colors hover:border-navy-800 hover:bg-navy-800 hover:text-white"
+                        >
+                          {industry.name}
+                        </Link>
+                      ) : (
+                        <span className="inline-flex min-h-10 items-center rounded-sm bg-steel-100 px-4 text-[0.9375rem] text-steel-600">
+                          {industry.name}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </Container>
+        </Section>
+      ) : null}
 
       <nav aria-label="Outras categorias de produto" className="border-t border-steel-200 bg-white">
         <Container className="grid sm:grid-cols-2">

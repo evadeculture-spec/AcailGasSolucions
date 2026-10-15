@@ -17,7 +17,7 @@ import { itemListSchema } from "@/lib/seo/structured-data";
 export const metadata: Metadata = buildMetadata({
   title: "Produtos",
   description:
-    "Gases industriais, alimentares, medicinais, especiais, gases dispositivo médico e gelo seco. Conheça a gama de produtos da Acail Gás.",
+    "Gases para soldadura e corte, gases alimentares, gases medicinais, gás ambiente (ozono) e gás propano, produzidos em Luanda.",
   path: routes.products,
 });
 
@@ -26,8 +26,8 @@ export default function ProductsPage() {
     <>
       <PageHero
         eyebrow="Produtos"
-        title="Uma gama completa de gases."
-        lead="Gases atmosféricos, gases combustíveis, gases de elevada pureza e misturas desenvolvidas para cada aplicação, organizados em seis categorias."
+        title="Cinco linhas de gás."
+        lead="Gases puros e misturas produzidos na fábrica do Pólo Industrial de Viana, para a indústria, a saúde e o setor alimentar."
         breadcrumbs={[
           { name: "Início", path: routes.home },
           { name: "Produtos", path: routes.products },
@@ -46,7 +46,7 @@ export default function ProductsPage() {
           id="fornecimento"
           eyebrow="Formas de fornecimento"
           title="Cada gás, na forma adequada ao consumo."
-          intro="Garrafas e quadros, líquidos criogénicos a granel ou produção nas instalações do cliente."
+          intro="Garrafas e quadros, fornecimento a granel e redes de gases."
           action={<ArrowLink href={routes.services}>Ver serviços e soluções</ArrowLink>}
         />
         <Container>
@@ -56,13 +56,13 @@ export default function ProductsPage() {
 
       <CtaBand
         title="Não encontra o gás de que precisa?"
-        body="Outros gases e misturas estão disponíveis mediante consulta. Descreva a sua aplicação e a nossa equipa responde com a solução adequada."
+        body="Descreva a sua aplicação e a nossa equipa responde com a solução adequada."
         primary={{ label: "Pedir informação técnica", href: contactHref("informacao-tecnica") }}
       />
 
       <JsonLd
         data={itemListSchema(
-          "Categorias de produto Acail Gás",
+          "Linhas de gás Acail Gás Solucions",
           productCategories.map((category) => ({
             name: category.name,
             path: routes.product(category.slug),

@@ -18,11 +18,11 @@ export function HomeIdentity() {
           </h2>
           <p className="mt-6 max-w-md text-lead text-steel-300">{company.mission}</p>
           <ArrowLink href={routes.history} tone="dark" className="mt-8">
-            História e identidade
+            A nossa história
           </ArrowLink>
         </div>
         <div className="lg:col-span-6 lg:col-start-7">
-          <p className="font-mono text-label text-steel-400 uppercase">Valores</p>
+          <p className="font-mono text-label text-steel-400 uppercase">Compromisso</p>
           <ul className="mt-6 border-t border-white/12">
             {company.values.map((value, index) => (
               <li

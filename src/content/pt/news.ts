@@ -1,57 +1,80 @@
 import type { NewsArticle } from "@/types/content";
 
 /**
- * News items published on acailgas.pt/noticia. Full original texts and
- * publication dates were not available during the audit, so each article is a
- * factual summary without a date (see docs/CONTENT_AUDIT.md §12).
+ * News about the gas division of Acail Angola. Sources: acailangola.com news,
+ * ANGOP (2015), RNA (2023) and the ISO 22000 certificate (2024). Dates are only
+ * shown when confirmed — see docs/CONTENT_SOURCES.md.
  */
 export const newsArticles: NewsArticle[] = [
   {
-    slug: "nova-unidade-de-producao-criogenica-de-gas",
-    title: "Nova unidade de produção criogénica de gás",
+    slug: "certificacao-iso-22000",
+    title: "Fábrica de gases certificada segundo a ISO 22000:2018",
     summary:
-      "Projeto cofinanciado para a criação de uma nova unidade de produção criogénica de gás, com capacidade prevista de 40 toneladas por dia.",
+      "A produção, comercialização e distribuição de azoto, oxigénio e dióxido de carbono para a indústria alimentar está certificada segundo a ISO 22000:2018.",
     body: [
-      "A Acail Gás, S.A. viu aprovado em 2016 um projeto cofinanciado para a criação de uma nova unidade de produção criogénica de gás.",
-      "A unidade tem uma capacidade de produção prevista de 40 toneladas por dia.",
+      "A Acail Angola obteve a certificação ISO 22000:2018 para a produção, comercialização e distribuição de azoto, oxigénio e dióxido de carbono destinados à indústria alimentar.",
+      "O certificado abrange a fábrica de gases do Pólo Industrial de Viana, em Luanda.",
     ],
     facts: [
-      { label: "Aprovação", value: "2016" },
-      { label: "Capacidade prevista", value: "40 t/dia" },
-      { label: "Custo total elegível aprovado", value: "5 292 075 €" },
+      { label: "Norma", value: "ISO 22000:2018" },
+      { label: "Emissão", value: "12-02-2024" },
+      { label: "Gases abrangidos", value: "N₂ · O₂ · CO₂" },
     ],
+    dateLabel: "Fevereiro de 2024",
     seo: {
-      title: "Nova unidade de produção criogénica de gás",
+      title: "Certificação ISO 22000:2018",
       description:
-        "Projeto cofinanciado aprovado em 2016 para uma nova unidade de produção criogénica de gás, com capacidade prevista de 40 t/dia.",
+        "A fábrica de gases da Acail Angola está certificada ISO 22000:2018 para azoto, oxigénio e dióxido de carbono para a indústria alimentar.",
     },
   },
   {
-    slug: "fabrica-de-aranda-de-duero-produz-gelo-seco",
-    title: "Fábrica de Aranda de Duero produz gelo seco",
-    summary: "A fábrica de Aranda de Duero, em Espanha, produz gelo seco.",
+    slug: "acail-disponibiliza-gas-propano",
+    title: "Acail disponibiliza gás propano",
+    summary: "Gás propano em garrafas de 12 kg e de 45 kg e a granel.",
     body: [
-      "A fábrica de Aranda de Duero, na província de Burgos, em Espanha, produz gelo seco.",
-      "O gelo seco é utilizado em limpeza criogénica de equipamentos sensíveis à água, no transporte em cadeia de frio e na congelação rápida de alimentos.",
+      "A Acail Angola passou a comercializar gás propano em garrafas de 12 kg e de 45 kg e em fornecimento a granel.",
+      "Para encomendas e condições, contacte o departamento de gás.",
+    ],
+    facts: [
+      { label: "Garrafas", value: "12 kg · 45 kg" },
+      { label: "Granel", value: "Disponível" },
     ],
     seo: {
-      title: "Fábrica de Aranda de Duero produz gelo seco",
-      description: "A fábrica de Aranda de Duero (Burgos, Espanha) produz gelo seco.",
+      title: "Acail disponibiliza gás propano",
+      description:
+        "A Acail Angola disponibiliza gás propano em garrafas de 12 kg e 45 kg e a granel, em Luanda.",
     },
   },
   {
-    slug: "nova-morada-em-espanha",
-    title: "Temos nova morada em Espanha",
+    slug: "visita-primeiro-ministro-portugal",
+    title: "Primeiro-Ministro de Portugal visita a fábrica de gases",
     summary:
-      "O escritório de Espanha mudou de instalações para servir melhor os clientes, no Polígono Industrial de Budiño, em O Porriño.",
+      "António Costa visitou o Pólo Industrial de Viana, incluindo a fábrica de gases da Acail, erguida com financiamento português.",
     body: [
-      "Para servir melhor os clientes, o escritório de Espanha mudou de instalações.",
-      "A nova localização situa-se no Polígono Industrial de Budiño, em O Porriño (Pontevedra).",
+      "Durante a visita a Angola, o Primeiro-Ministro de Portugal, António Costa, esteve no Pólo Industrial de Viana, em Luanda.",
+      "A visita incluiu a fábrica de gases da Acail, um dos empreendimentos do pólo erguidos com financiamento português.",
     ],
+    dateLabel: "Junho de 2023",
     seo: {
-      title: "Temos nova morada em Espanha",
+      title: "Visita do Primeiro-Ministro de Portugal",
       description:
-        "O escritório de Espanha está agora no Polígono Industrial de Budiño, em O Porriño (Pontevedra).",
+        "António Costa visitou o Pólo Industrial de Viana e a fábrica de gases da Acail, erguida com financiamento português.",
+    },
+  },
+  {
+    slug: "inauguracao-fabrica-de-gases",
+    title: "Inaugurada a fábrica de gases no Pólo Industrial de Viana",
+    summary:
+      "O Ministro da Geologia e Minas e da Indústria, Joaquim David, inaugurou as unidades de produção de gases medicinais, alimentares e industriais.",
+    body: [
+      "Foram inauguradas no Pólo Industrial de Viana três unidades industriais, entre as quais a unidade de produção de gases medicinais, alimentares e industriais.",
+      "A inauguração foi presidida pelo então Ministro da Geologia e Minas e da Indústria, Joaquim David.",
+    ],
+    dateLabel: "2015",
+    seo: {
+      title: "Inauguração da fábrica de gases",
+      description:
+        "Inauguração das unidades de produção de gases medicinais, alimentares e industriais no Pólo Industrial de Viana, em Luanda.",
     },
   },
 ];

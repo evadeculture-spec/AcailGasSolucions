@@ -14,8 +14,8 @@ const values: ContactFormValues = {
   email: "cliente@example.pt",
   phone: "",
   subject: "proposta",
-  product: "gelo-seco",
-  message: "Pedido de proposta para gelo seco.",
+  product: "gas-propano",
+  message: "Pedido de proposta para gás propano.",
   consent: true,
 };
 
@@ -36,7 +36,7 @@ describe("contact mailer", () => {
   it("builds a plain-text email with the product name", () => {
     const email = buildContactEmail(values);
     expect(email.subject).toContain("Pedido de proposta comercial");
-    expect(email.text).toContain("Produto de interesse: Gelo Seco");
+    expect(email.text).toContain("Produto de interesse: Gás Propano");
     expect(email.text).toContain("Empresa: —");
   });
 

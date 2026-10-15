@@ -14,7 +14,7 @@ const valid: ContactFormValues = {
   email: "maria@example.pt",
   phone: "+351 256 000 000",
   subject: "proposta",
-  product: "gases-industriais",
+  product: "gases-soldadura-corte",
   message: "Pretendemos fornecimento de árgon em garrafas para soldadura.",
   consent: true,
 };

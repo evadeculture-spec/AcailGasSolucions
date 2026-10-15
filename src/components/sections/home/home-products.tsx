@@ -11,8 +11,8 @@ export function HomeProducts() {
         id="produtos-title"
         eyebrow="Produtos"
         index="02"
-        title="Seis categorias. Uma gama completa de gases."
-        intro="Gases puros, liquefeitos e misturas para a indústria, o setor alimentar, a saúde e o laboratório."
+        title="Cinco linhas de gás, produzidas em Luanda."
+        intro="Gases puros e misturas para soldadura e corte, indústria alimentar, saúde, tratamento de águas e energia."
         action={<ArrowLink href={routes.products}>Ver todos os produtos</ArrowLink>}
       />
       <CategoryIndex categories={productCategories} />

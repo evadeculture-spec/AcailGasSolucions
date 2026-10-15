@@ -9,9 +9,8 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { MediaPlaceholder } from "@/components/ui/media-placeholder";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { siteConfig } from "@/config/site";
 import { getProductCategoryOrThrow } from "@/content/pt/products";
-import { acailVision } from "@/content/pt/services";
+import { getSupplyMode } from "@/content/pt/services";
 import { ProductItems } from "@/features/products/product-items";
 import { contactHref, routes } from "@/lib/routes";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -19,54 +18,57 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Saúde",
   description:
-    "Gases medicinais produzidos segundo as Boas Práticas de Fabrico para hospitais, clínicas, lares, INEM e bombeiros, gases dispositivo médico e gestão Acail Vision.",
+    "Gases medicinais de elevada pureza e redes de gases medicinais para hospitais e clínicas em Angola: oxigénio medicinal líquido, quadros e garrafas.",
   path: routes.health,
 });
 
-const users = ["Hospitais", "Clínicas", "Lares", "INEM", "Bombeiros"];
+const routeSteps = [
+  "Fonte exterior",
+  "Rede de distribuição",
+  "Enfermarias",
+  "Blocos operatórios",
+  "Salas de recobro",
+];
 
 export default function HealthPage() {
   const medicinal = getProductCategoryOrThrow("gases-medicinais");
-  const medicalDevice = getProductCategoryOrThrow("gases-dispositivo-medico");
+  const networks = getSupplyMode("medical-networks");
 
   return (
     <>
       <PageHero
         eyebrow="Saúde"
-        title="Gases medicinais com a pureza que a saúde exige."
-        lead="Os gases medicinais são classificados como medicamentos e são produzidos segundo as Boas Práticas de Fabrico, com níveis elevados de pureza."
+        title="Gases medicinais da fonte à tomada."
+        lead="Gases medicinais de elevada pureza e redes de gases medicinais para hospitais e clínicas, produzidos e instalados em Angola."
         breadcrumbs={[
           { name: "Início", path: routes.home },
           { name: "Saúde", path: routes.health },
         ]}
       >
         <ButtonLink href={contactHref("saude", "gases-medicinais")} tone="dark">
-          Contactar a equipa de saúde
+          Contactar o departamento de gás medicinal
         </ButtonLink>
       </PageHero>
 
-      <Section aria-labelledby="utilizadores">
+      <Section aria-labelledby="pureza">
         <Container className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6" data-reveal>
             <Eyebrow index="01" className="mb-5">
-              Quem servimos
+              Pureza e continuidade
             </Eyebrow>
-            <h2 id="utilizadores" className="text-h2 text-navy-900">
-              Utilizados diariamente por quem presta cuidados de saúde.
+            <h2 id="pureza" className="text-h2 text-navy-900">
+              O cuidado ao doente depende da pureza do gás e da continuidade do fornecimento.
             </h2>
-            <ul className="mt-10 flex flex-wrap gap-2">
-              {users.map((user) => (
-                <li
-                  key={user}
-                  className="rounded-sm border border-steel-300 px-4 py-2.5 text-[0.9375rem] text-navy-900"
-                >
-                  {user}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-6 text-lead text-steel-600">
+              Por isso, a pureza deve manter-se ao longo de toda a rede, desde a fonte até à tomada
+              de utilização.
+            </p>
           </div>
           <div className="lg:col-span-5 lg:col-start-8">
-            <MediaPlaceholder brief="Rede de gases medicinais numa unidade de saúde." ratio="4/3" />
+            <MediaPlaceholder
+              brief="Rede de gases medicinais numa unidade de saúde em Angola."
+              ratio="4/3"
+            />
           </div>
         </Container>
       </Section>
@@ -96,60 +98,52 @@ export default function HealthPage() {
         </Container>
       </Section>
 
-      <Section aria-labelledby="dispositivo-medico">
-        <Container className="grid gap-12 lg:grid-cols-2">
-          <div data-reveal>
-            <Eyebrow index="03" className="mb-5">
-              Dispositivo médico
+      <Section tone="dark" aria-labelledby="redes-medicinais">
+        <Container className="grid gap-14 lg:grid-cols-12">
+          <div className="lg:col-span-5" data-reveal>
+            <Eyebrow index="03" tone="dark" className="mb-5">
+              Redes de gases medicinais
             </Eyebrow>
-            <h2 id="dispositivo-medico" className="text-h2 text-navy-900">
-              {medicalDevice.name}
+            <h2 id="redes-medicinais" className="text-h2 text-white">
+              Uma rede adaptada a cada clínica ou hospital.
             </h2>
-            <p className="mt-6 text-lead text-steel-600">{medicalDevice.summary}</p>
-            <ArrowLink href={routes.product(medicalDevice.slug)} className="mt-8">
-              Ver gases dispositivo médico
+            <p className="mt-6 text-lead text-steel-300">{networks.summary}</p>
+            <ArrowLink href={routes.medicalNetworks} tone="dark" className="mt-8">
+              Ver serviço de redes
             </ArrowLink>
           </div>
-          <div className="rounded-sm bg-navy-800 p-8 text-white md:p-10" data-reveal>
-            <Eyebrow tone="dark" className="mb-5">
-              Gestão de redes e garrafas
-            </Eyebrow>
-            <h2 className="text-h3 text-white">{acailVision.name}</h2>
-            <p className="mt-4 text-[0.9375rem] leading-relaxed text-steel-300">
-              {acailVision.statement}
-            </p>
-            <ArrowLink href={routes.acailVision} tone="dark" className="mt-8">
-              Conhecer o Acail Vision
-            </ArrowLink>
-          </div>
-        </Container>
-      </Section>
-
-      <Section tone="muted" aria-labelledby="domicilio">
-        <Container className="grid gap-10 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7" data-reveal>
-            <Eyebrow index="04" className="mb-5">
-              Cuidados respiratórios domiciliários
-            </Eyebrow>
-            <h2 id="domicilio" className="text-h2 text-navy-900">
-              Acail Medicare
-            </h2>
-            <p className="mt-6 max-w-2xl text-lead text-steel-600">
-              A Acail Medicare acompanha o doente respiratório no domicílio, com apoio técnico
-              durante todo o tratamento prescrito pelo médico.
-            </p>
-          </div>
-          <div className="lg:col-span-4 lg:col-start-9 lg:justify-self-end">
-            <ButtonLink href={siteConfig.links.medicare} variant="secondary">
-              Visitar acailmedicare.pt
-            </ButtonLink>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <ol className="border-t border-white/12">
+              {routeSteps.map((step, index) => (
+                <li
+                  key={step}
+                  className="flex items-baseline gap-6 border-b border-white/12 py-5"
+                  data-reveal
+                >
+                  <span aria-hidden="true" className="font-mono text-label text-cryo-300">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-2xl text-white">{step}</span>
+                </li>
+              ))}
+            </ol>
+            <ul className="mt-8 flex flex-wrap gap-2">
+              {networks.points.map((point) => (
+                <li
+                  key={point}
+                  className="rounded-sm border border-white/20 px-4 py-2 text-sm text-steel-200"
+                >
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </Section>
 
       <CtaBand
         title="Fornecimento de gases medicinais"
-        body="Para unidades de saúde, lares e serviços de emergência. Indique as suas necessidades e a nossa equipa responde."
+        body="Para hospitais e clínicas. Indique as suas necessidades de gases medicinais ou o projeto de rede e a nossa equipa responde."
         primary={{ label: "Contactar", href: contactHref("saude", "gases-medicinais") }}
       />
     </>

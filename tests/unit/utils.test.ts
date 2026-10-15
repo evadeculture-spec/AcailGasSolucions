@@ -18,13 +18,13 @@ describe("serializeJsonLd", () => {
 
 describe("routing helpers", () => {
   it("builds contact links with subject and product", () => {
-    expect(contactHref("fds", "gases-especiais")).toBe(
-      "/contactos?assunto=fds&produto=gases-especiais#formulario",
+    expect(contactHref("saude", "gases-medicinais")).toBe(
+      "/contactos?assunto=saude&produto=gases-medicinais#formulario",
     );
   });
 
   it("detects active sections", () => {
-    expect(isActivePath("/produtos/gelo-seco", "/produtos")).toBe(true);
+    expect(isActivePath("/produtos/gas-propano", "/produtos")).toBe(true);
     expect(isActivePath("/produtos-x", "/produtos")).toBe(false);
     expect(isActivePath("/empresa", "/empresa#historia")).toBe(true);
     expect(isActivePath("/empresa", "/")).toBe(false);
@@ -40,9 +40,9 @@ describe("routing helpers", () => {
 describe("seo", () => {
   it("builds canonical and hreflang alternates", () => {
     const metadata = buildMetadata({ title: "Saúde", description: "d", path: "/saude" });
-    expect(metadata.alternates?.canonical).toBe("https://www.acailgas.pt/saude");
+    expect(metadata.alternates?.canonical).toBe("https://acailgassolucions.vercel.app/saude");
     expect(metadata.alternates?.languages).toMatchObject({
-      "pt-PT": "https://www.acailgas.pt/saude",
+      "pt-AO": "https://acailgassolucions.vercel.app/saude",
     });
   });
 

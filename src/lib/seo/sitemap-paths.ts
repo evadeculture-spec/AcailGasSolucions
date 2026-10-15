@@ -31,7 +31,6 @@ export function sitemapPaths(): SitemapEntry[] {
     { path: routes.health, priority: 0.8, changeFrequency: "monthly" },
     { path: routes.company, priority: 0.7, changeFrequency: "yearly" },
     { path: routes.quality, priority: 0.7, changeFrequency: "yearly" },
-    { path: routes.distributors, priority: 0.6, changeFrequency: "monthly" },
     { path: routes.news, priority: 0.6, changeFrequency: "weekly" },
     ...newsArticles.map((article) => ({
       path: routes.newsArticle(article.slug),

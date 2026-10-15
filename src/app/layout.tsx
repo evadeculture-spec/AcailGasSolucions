@@ -58,7 +58,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-PT" className={`${inter.variable} ${archivo.variable} ${jetbrains.variable}`}>
+    <html lang="pt-AO" className={`${inter.variable} ${archivo.variable} ${jetbrains.variable}`}>
       <body className="flex min-h-dvh flex-col">
         {children}
         <JsonLd data={[organizationSchema(), websiteSchema()]} />

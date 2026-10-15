@@ -9,13 +9,13 @@ test("robots.txt references the sitemap and blocks the API", async ({ request })
 test("sitemap lists product, industry and news pages", async ({ request }) => {
   const body = await (await request.get("/sitemap.xml")).text();
   expect(body).toContain("/produtos/gases-medicinais");
-  expect(body).toContain("/industrias/metalurgia");
-  expect(body).toContain("/noticias/nova-morada-em-espanha");
-  expect(body).toContain('hreflang="pt-PT"');
+  expect(body).toContain("/industrias/metalomecanica-soldadura");
+  expect(body).toContain("/noticias/acail-disponibiliza-gas-propano");
+  expect(body).toContain('hreflang="pt-AO"');
 });
 
 test("pages expose valid structured data", async ({ page }) => {
-  await page.goto("/produtos/gases-industriais");
+  await page.goto("/produtos/gases-alimentares");
   const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
   const types = blocks.flatMap((block) => {
     const data = JSON.parse(block) as unknown;

@@ -1,99 +1,119 @@
 import type { ProductCategory, ProductCategorySlug } from "@/types/content";
 
 /**
- * Product categories. Sources: acailgas.pt/gases (PT/EN/ES) — see docs/CONTENT_SOURCES.md.
- * Mixture compositions and purity grades are not published until confirmed.
+ * Gas product lines of Acail Angola. Sources: acailangola.com product pages and
+ * the ISO 22000:2018 certificate — see docs/CONTENT_SOURCES.md.
+ * Cylinder sizes, purities and prices are only published when confirmed.
  */
 
-const ON_REQUEST = "Outros gases mediante consulta.";
+const CONTACT_NOTE =
+  "Para disponibilidade, capacidades e condições, contacte o departamento de gás.";
 
 export const productCategories: ProductCategory[] = [
   {
-    slug: "gases-industriais",
+    slug: "gases-soldadura-corte",
     index: "01",
-    name: "Gases Industriais",
+    name: "Gases para Soldadura e Corte",
     summary:
-      "Gases atmosféricos, gases combustíveis e misturas para metalurgia, soldadura, corte, química e tratamento de águas.",
+      "Árgon, misturas para MIG/MAG e TIG, azoto para corte por plasma e acetileno em garrafas.",
     intro: [
-      "A Acail Gás produz uma gama completa de gases atmosféricos e desenvolve gases específicos para cada indústria.",
-      "A oferta abrange gases puros, gases liquefeitos e misturas para processos de soldadura, corte, proteção, inertização, arrefecimento e tratamento.",
+      "Gases puros e misturas para os processos de soldadura MIG/MAG e TIG e para corte por plasma, identificados segundo a classificação da norma ISO 14175.",
+      "A escolha da mistura depende do material, da espessura e do modo de transferência do arco: arco curto, spray ou pulsado.",
     ],
     items: [
-      { name: "Oxigénio", substance: "oxygen" },
-      {
-        name: "Azoto",
-        substance: "nitrogen",
-        variant: "Gás e líquido",
-        description:
-          "Na forma líquida, é utilizado como gás de proteção, em limpeza e em arrefecimento.",
-      },
       {
         name: "Árgon",
         substance: "argon",
-        variant: "Gás e líquido",
-        description:
-          "Gás de proteção em soldadura, gás de purga, diluição e inertização, e gás de teste e calibração.",
+        variant: "ISO 14175 I1",
+        description: "Gás de proteção para soldadura TIG.",
       },
       {
         name: "Dióxido de Carbono",
         substance: "carbon-dioxide",
-        description:
-          "Utilizado no tratamento de águas e águas residuais, para controlo de pH e remineralização de água de osmose inversa.",
+        description: "Gás de soldadura e componente das misturas Arco.",
       },
       {
-        name: "Hidrogénio",
-        substance: "hydrogen",
-        description:
-          "Gás redutor em processos metalúrgicos e cerâmicos e componente de misturas para soldadura.",
+        name: "Azoto",
+        substance: "nitrogen",
+        variant: "ISO 14175 F1",
+        description: "Gás para corte por plasma.",
       },
       {
         name: "Acetileno",
         substance: "acetylene",
-        description:
-          "Utilizado em soldadura e corte. A sua chama atinge a temperatura mais elevada entre os gases combustíveis.",
+        variant: "Garrafas de 14 L, 5 L e tara perdida de 1 L",
+        description: "Fornecido com reguladores e centrais de acetileno.",
       },
-      { name: "Hélio", substance: "helium" },
-      { name: "Dióxido de Enxofre", substance: "sulfur-dioxide" },
     ],
     mixtures: {
-      title: "Misturas de gases industriais",
+      title: "Misturas para soldadura",
       description:
-        "Misturas para soldadura, corte laser e aplicações específicas, com ficha técnica e ficha de dados de segurança.",
-      names: ["ARCO", "ARO", "HELAR", "HELARCO", "HELAZO", "HIDARG", "HIDAZO", "LASERMIX", "METAR"],
+        "Misturas de árgon com dióxido de carbono, oxigénio, hélio ou hidrogénio, para cada material e processo.",
+      entries: [
+        {
+          name: "Arco 8",
+          composition: "Ar / CO₂",
+          standard: "ISO 14175 M21",
+          use: "MIG/MAG em arco curto e spray",
+        },
+        {
+          name: "Arco 20",
+          composition: "Ar / CO₂",
+          standard: "ISO 14175 M21",
+          use: "MIG/MAG em arco curto; aços ao carbono de maior espessura, boa penetração",
+        },
+        { name: "Arco T5", use: "MIG/MAG em chapa até 4 mm" },
+        {
+          name: "Arco T12",
+          composition: "Ar / CO₂ / O₂",
+          standard: "ISO 14175 M24",
+          use: "MIG/MAG em arco curto, spray e pulsado; chapa acima de 4 mm, velocidades elevadas",
+        },
+        {
+          name: "Helarco",
+          composition: "Ar / He / CO₂",
+          use: "MIG/MAG em aços inoxidáveis; maior velocidade de soldadura e bom aspeto do cordão",
+        },
+        { name: "Helar 5", use: "TIG" },
+        {
+          name: "Helar 30",
+          use: "TIG em aços ao carbono e de baixa liga; velocidade elevada e boa penetração",
+        },
+        {
+          name: "Hidarg",
+          use: "TIG e corte por plasma, apenas em materiais que admitem hidrogénio",
+        },
+        {
+          name: "Hidazo",
+          use: "TIG e corte por plasma, apenas em materiais que admitem hidrogénio",
+        },
+      ],
     },
     applications: [
       {
-        title: "Metalurgia e siderurgia",
-        body: "Fundição, processos térmicos, fornos de arco elétrico, afinação do aço com oxigénio e homogeneização com azoto e árgon.",
+        title: "MIG/MAG",
+        body: "Misturas Arco para aços ao carbono e Helarco para aços inoxidáveis, em arco curto, spray ou pulsado.",
       },
       {
-        title: "Soldadura e corte",
-        body: "Gases de proteção e misturas para soldadura, oxicorte com acetileno e misturas para corte laser.",
+        title: "TIG",
+        body: "Árgon puro e misturas Helar e Hidarg, consoante o material e a velocidade pretendida.",
       },
       {
-        title: "Química",
-        body: "O hidrogénio é um componente principal na produção de amoníaco e metanol. A inertização e o arrefecimento de reatores recorrem a gases industriais.",
+        title: "Corte por plasma",
+        body: "Azoto e misturas com hidrogénio para corte por plasma.",
       },
       {
-        title: "Ambiente",
-        body: "Neutralização de pH, remineralização de água e tratamento de efluentes, resíduos e compostos orgânicos voláteis.",
+        title: "Oxicorte",
+        body: "Acetileno em garrafas de várias capacidades, com reguladores e centrais.",
       },
     ],
-    supplyModes: ["cylinders", "bulk", "on-site", "equipment", "telemetry"],
-    industries: [
-      "metalurgia",
-      "metalomecanica",
-      "soldadura",
-      "quimica",
-      "ambiente",
-      "construcao",
-      "vidro",
-    ],
-    onRequestNote: ON_REQUEST,
+    supplyModes: ["cylinders", "welding-equipment"],
+    industries: ["metalomecanica-soldadura"],
+    onRequestNote: CONTACT_NOTE,
     seo: {
-      title: "Gases Industriais",
+      title: "Gases para Soldadura e Corte",
       description:
-        "Oxigénio, azoto, árgon, dióxido de carbono, hidrogénio, acetileno, hélio e misturas para soldadura, corte, metalurgia, química e ambiente.",
+        "Árgon, misturas Arco, Helar, Helarco, Hidarg e Hidazo, azoto para plasma e acetileno em garrafas, em Luanda.",
     },
   },
   {
@@ -101,47 +121,59 @@ export const productCategories: ProductCategory[] = [
     index: "02",
     name: "Gases Alimentares",
     summary:
-      "Gases e misturas para inertização, desoxigenação, embalagem e conservação de alimentos e bebidas.",
+      "Azoto, dióxido de carbono, árgon e oxigénio para inertização, congelação e refrigeração, com certificação ISO 22000.",
     intro: [
-      "O oxigénio encurta a vida útil dos alimentos líquidos e afeta o seu valor nutricional. O azoto, o dióxido de carbono, o árgon e as respetivas misturas permitem inertizar e desoxigenar, preservando a qualidade do produto.",
+      "A fábrica do Pólo Industrial de Viana está certificada segundo a norma ISO 22000:2018 para a produção, comercialização e distribuição de azoto, oxigénio e dióxido de carbono para a indústria alimentar.",
     ],
     items: [
-      { name: "Azoto", substance: "nitrogen" },
-      { name: "Dióxido de Carbono", substance: "carbon-dioxide" },
-      { name: "Árgon", substance: "argon" },
-      { name: "Oxigénio", substance: "oxygen" },
+      {
+        name: "Azoto",
+        substance: "nitrogen",
+        variant: "Abrangido pela certificação ISO 22000",
+        description: "Inertização, congelação e refrigeração de alimentos.",
+      },
+      {
+        name: "Dióxido de Carbono",
+        substance: "carbon-dioxide",
+        variant: "Abrangido pela certificação ISO 22000",
+        description: "Inertização, congelação e refrigeração de alimentos.",
+      },
+      {
+        name: "Oxigénio",
+        substance: "oxygen",
+        variant: "Abrangido pela certificação ISO 22000",
+      },
+      {
+        name: "Árgon",
+        substance: "argon",
+        description: "Inertização de produtos sensíveis.",
+      },
     ],
-    mixtures: {
-      title: "Misturas alimentares ALIMIX",
-      description:
-        "Gama de misturas para embalagem alimentar, com ficha técnica e ficha de dados de segurança.",
-      names: ["ALIMIX 20", "ALIMIX 30", "ALIMIX 30/70", "ALIMIX 40/30", "ALIMIX A20"],
-    },
     applications: [
       {
-        title: "Bebidas",
-        body: "O azoto e o dióxido de carbono, puros ou combinados, evitam a oxidação sem recurso a antioxidantes.",
+        title: "Inertização",
+        body: "Evitar atmosferas explosivas no armazenamento e embalagem de produtos inflamáveis e proteger produtos sensíveis da oxidação, da humidade e dos micróbios.",
       },
       {
-        title: "Embalagem",
-        body: "Uma gota de azoto líquido, introduzida imediatamente antes do fecho, purga o ar e pressuriza a embalagem, protegendo o produto da oxidação.",
+        title: "Congelação",
+        body: "Congelação de alimentos com dióxido de carbono e azoto.",
       },
       {
-        title: "Lacticínios",
-        body: "O dióxido de carbono é o gás mais utilizado na embalagem de lacticínios, por inibir ou reduzir a atividade microbiana.",
+        title: "Refrigeração",
+        body: "Refrigeração de alimentos, incluindo uva e mosto nas vindimas.",
       },
       {
-        title: "Inertização de líquidos",
-        body: "Desoxigenação de líquidos alimentares para preservar a vida útil e o valor nutricional.",
+        title: "Transporte a temperatura controlada",
+        body: "Transporte de alimentos ou medicamentos a temperatura controlada.",
       },
     ],
-    supplyModes: ["cylinders", "bulk", "telemetry"],
-    industries: ["alimentar", "agricultura-pecuaria-pescas"],
-    onRequestNote: ON_REQUEST,
+    supplyModes: ["cylinders"],
+    industries: ["alimentar-bebidas"],
+    onRequestNote: CONTACT_NOTE,
     seo: {
       title: "Gases Alimentares",
       description:
-        "Azoto, dióxido de carbono, árgon e misturas ALIMIX para inertização, desoxigenação, bebidas e embalagem alimentar.",
+        "Azoto, dióxido de carbono, oxigénio e árgon para a indústria alimentar, produzidos em Luanda com certificação ISO 22000:2018.",
     },
   },
   {
@@ -149,185 +181,137 @@ export const productCategories: ProductCategory[] = [
     index: "03",
     name: "Gases Medicinais",
     summary:
-      "Gases classificados como medicamentos, produzidos segundo as Boas Práticas de Fabrico, para hospitais, clínicas, lares e emergência médica.",
+      "Oxigénio medicinal, protóxido de azoto, ar sintético, azoto medicinal, Carbox e dióxido de carbono medicinal.",
     intro: [
-      "Os gases medicinais são classificados como medicamentos e são produzidos segundo as Boas Práticas de Fabrico. Todos os gases medicinais da Acail Gás apresentam níveis elevados de pureza.",
-      "São utilizados diariamente por hospitais, clínicas, lares, pelo INEM e pelos bombeiros.",
+      "Gases medicinais de elevada pureza para hospitais e clínicas, produzidos na fábrica de gases do Pólo Industrial de Viana, em Luanda.",
+      "O oxigénio para inalação é utilizado sobretudo em oxigenoterapia aguda ou crónica e é fornecido em forma líquida, em quadros e em garrafas.",
     ],
     items: [
       {
-        name: "Oxigénio",
+        name: "Oxigénio Medicinal",
         substance: "oxygen",
-        notice: "Medicamento sujeito a receita médica. Consulte o folheto informativo.",
+        variant: "Líquido, quadros e garrafas",
+        description:
+          "Elevada pureza e isento de contaminações. Também disponível em garrafas Compact B de 2, 5 e 15 litros, com redutor-debitómetro integrado.",
       },
+      { name: "Protóxido de Azoto", substance: "nitrous-oxide" },
       {
-        name: "Oxigénio Líquido (API)",
-        substance: "oxygen",
-        variant: "Substância ativa",
-        cylinder: false,
-      },
-      {
-        name: "Oxigénio Criogénico",
-        substance: "oxygen",
-        variant: "Líquido criogénico",
-        cylinder: false,
-      },
-      {
-        name: "Ar Medicinal Sintético",
+        name: "Ar Sintético",
         substance: "medical-air",
-        notice: "Medicamento sujeito a receita médica. Consulte o folheto informativo.",
+        description: "Composição de cerca de 79% de azoto e 21% de oxigénio.",
       },
       {
-        name: "Protóxido de Azoto",
-        substance: "nitrous-oxide",
-        description: "Utilizado como analgésico e auxiliar na anestesia.",
+        name: "Azoto Medicinal",
+        substance: "nitrogen",
+        description: "Elevada pureza e isento de contaminações.",
       },
+      {
+        name: "Carbox",
+        substance: "carbox",
+        description: "Mistura de dióxido de carbono e oxigénio.",
+      },
+      { name: "Dióxido de Carbono Medicinal", substance: "carbon-dioxide" },
     ],
     applications: [
       {
+        title: "Oxigenoterapia",
+        body: "Oxigénio para inalação em oxigenoterapia aguda ou crónica.",
+      },
+      {
         title: "Hospitais e clínicas",
-        body: "Fornecimento de gases medicinais para utilização diária em unidades de saúde.",
+        body: "Fornecimento de gases medicinais a unidades de saúde.",
       },
       {
-        title: "Lares",
-        body: "Gases medicinais para utilização em lares.",
-      },
-      {
-        title: "Emergência médica",
-        body: "Gases medicinais utilizados pelo INEM e pelos bombeiros.",
-      },
-      {
-        title: "Gestão de redes e garrafas",
-        body: "O Acail Vision é um sistema modular de gestão de redes e garrafas de gases medicinais, adaptado a cada cliente.",
+        title: "Redes de gases medicinais",
+        body: "Projeto, instalação, manutenção, auditoria e formação para redes de gases em clínicas e hospitais.",
       },
     ],
     regulatory: [
-      "Os gases medicinais são medicamentos. A informação nesta página não substitui o folheto informativo nem o aconselhamento de um profissional de saúde.",
+      "A utilização de gases medicinais deve seguir a prescrição e a orientação de profissionais de saúde.",
     ],
-    supplyModes: ["cylinders", "bulk", "telemetry"],
-    industries: ["farmaceutica"],
-    onRequestNote: ON_REQUEST,
+    supplyModes: ["liquid", "cylinders", "medical-networks"],
+    industries: ["hospitais-clinicas"],
+    onRequestNote: "Para disponibilidade e condições, contacte o departamento de gás medicinal.",
     seo: {
       title: "Gases Medicinais",
       description:
-        "Oxigénio medicinal, oxigénio líquido, ar medicinal sintético e protóxido de azoto, produzidos segundo as Boas Práticas de Fabrico.",
+        "Oxigénio medicinal líquido e em garrafas, protóxido de azoto, ar sintético, azoto medicinal e Carbox para hospitais e clínicas em Angola.",
     },
   },
   {
-    slug: "gases-especiais",
+    slug: "gas-ambiente",
     index: "04",
-    name: "Gases Especiais",
-    summary:
-      "Gases de pureza ultra elevada e misturas de análise e calibração para laboratório, biotecnologia, farmacêutica e eletrónica.",
+    name: "Gás Ambiente",
+    summary: "Ozono e ácido carbónico para tratamento de águas, controlo de odores e desinfeção.",
     intro: [
-      "A instrumentação analítica depende de gases de muito elevada pureza e de misturas específicas. A gama de gases especiais inclui gases puros e misturas para laboratório, biotecnologia, indústria farmacêutica e eletrónica.",
-    ],
-    items: [
-      { name: "Árgon", substance: "argon", variant: "Pureza ultra elevada" },
-      { name: "Azoto", substance: "nitrogen", variant: "Pureza ultra elevada" },
-      { name: "Hélio", substance: "helium", variant: "Pureza ultra elevada" },
-      {
-        name: "Hidrogénio",
-        substance: "hydrogen",
-        variant: "Pureza ultra elevada",
-        description: "Gás de arraste e gás combustível em cromatografia gasosa.",
-      },
-    ],
-    applications: [
-      {
-        title: "Cromatografia",
-        body: "Gases e misturas para cromatógrafos gasosos com múltiplos detetores e para cromatógrafos líquidos.",
-      },
-      {
-        title: "Espectrometria",
-        body: "Gases para espectrómetros UV/VIS e de ressonância magnética nuclear (RMN).",
-      },
-      {
-        title: "Análise e calibração",
-        body: "Misturas de análise e calibração para instrumentação analítica, e gases de teste e calibração.",
-      },
-      {
-        title: "Investigação e desenvolvimento",
-        body: "Gases de elevada pureza para laboratórios de I&D, biotecnologia e indústria farmacêutica.",
-      },
-    ],
-    supplyModes: ["cylinders", "equipment"],
-    industries: ["laboratorios", "farmaceutica", "eletronica-telecomunicacoes"],
-    onRequestNote: ON_REQUEST,
-    seo: {
-      title: "Gases Especiais",
-      description:
-        "Gases de pureza ultra elevada (árgon, azoto, hélio, hidrogénio) e misturas de análise e calibração para laboratório e investigação.",
-    },
-  },
-  {
-    slug: "gases-dispositivo-medico",
-    index: "05",
-    name: "Gases Dispositivo Médico",
-    summary:
-      "Dióxido de carbono como agente de insuflação em cirurgia laparoscópica e endoscópica.",
-    intro: [
-      "Para além dos gases classificados como medicamentos, a Acail Gás disponibiliza gases enquadrados como dispositivo médico, destinados a procedimentos cirúrgicos.",
+      "O ozono (O₃) é um oxidante forte, utilizado no tratamento de águas e de odores. Ao decompor-se em oxigénio, não deixa os meios tratados saturados de químicos indesejados.",
+      "O ozono é também um desinfetante potente, que elimina bactérias e vírus sem deixar resíduos.",
     ],
     items: [
       {
-        name: "Dióxido de Carbono",
+        name: "Ozono",
+        substance: "ozone",
+        cylinder: false,
+        description: "Oxidação e desinfeção de águas e controlo de odores.",
+      },
+      {
+        name: "Ácido Carbónico",
         substance: "carbon-dioxide",
-        description: "Agente de insuflação em cirurgia laparoscópica e endoscópica.",
+        cylinder: false,
+        description: "Tratamento de água potável.",
       },
     ],
     applications: [
       {
-        title: "Cirurgia laparoscópica",
-        body: "Insuflação da cavidade abdominal para criação do espaço de trabalho cirúrgico.",
+        title: "Água para consumo",
+        body: "Tratamento de água para consumo humano e de água engarrafada, e desinfeção de garrafas.",
       },
       {
-        title: "Endoscopia",
-        body: "Utilização como agente de insuflação em procedimentos endoscópicos.",
+        title: "Aquários e bivalves",
+        body: "Tratamento de água em aquários e depuração de bivalves.",
+      },
+      {
+        title: "Controlo de odores",
+        body: "Controlo de odores em estações de tratamento de águas residuais e em matadouros.",
+      },
+      {
+        title: "Águas residuais",
+        body: "Tratamento de águas residuais por oxidação, sem odores.",
       },
     ],
-    supplyModes: ["cylinders"],
-    industries: ["farmaceutica"],
-    onRequestNote: ON_REQUEST,
+    supplyModes: [],
+    industries: ["tratamento-aguas", "aquicultura", "alimentar-bebidas"],
+    onRequestNote:
+      "Cada instalação de tratamento é estudada caso a caso. Contacte o departamento de gás.",
     seo: {
-      title: "Gases Dispositivo Médico",
+      title: "Gás Ambiente: Ozono",
       description:
-        "Dióxido de carbono para insuflação em cirurgia laparoscópica e endoscópica. Outros gases mediante consulta.",
+        "Ozono e ácido carbónico para tratamento de água potável e engarrafada, controlo de odores, águas residuais e depuração de bivalves.",
     },
   },
   {
-    slug: "gelo-seco",
-    index: "06",
-    name: "Gelo Seco",
-    summary:
-      "Dióxido de carbono sólido para limpeza criogénica, cadeia de frio e congelação rápida.",
+    slug: "gas-propano",
+    index: "05",
+    name: "Gás Propano",
+    summary: "Propano em garrafas de 12 kg e de 45 kg e a granel.",
     intro: [
-      "O gelo seco é dióxido de carbono no estado sólido. Sublima sem deixar resíduo líquido, o que o torna adequado para aplicações em que a água não é admissível.",
+      "A Acail Angola disponibiliza gás propano em garrafas de 12 kg e de 45 kg e em fornecimento a granel.",
     ],
     items: [
-      { name: "Gelo Seco", substance: "carbon-dioxide", variant: "Estado sólido", cylinder: false },
-    ],
-    applications: [
       {
-        title: "Limpeza criogénica",
-        body: "Limpeza de equipamentos ou materiais sensíveis à água, através da projeção de gelo seco a alta pressão.",
-      },
-      {
-        title: "Cadeia de frio",
-        body: "O gelo seco garante a cadeia de frio no transporte de refeições.",
-      },
-      {
-        title: "Congelação rápida",
-        body: "Congelação rápida de produtos alimentares.",
+        name: "Propano",
+        substance: "propane",
+        cylinder: false,
+        variant: "Garrafas de 12 kg e 45 kg · granel",
       },
     ],
-    supplyModes: ["bulk"],
-    industries: ["alimentar", "transportes"],
-    onRequestNote: "Formatos e quantidades mediante consulta.",
+    applications: [],
+    supplyModes: ["cylinders", "liquid"],
+    industries: [],
+    onRequestNote: CONTACT_NOTE,
     seo: {
-      title: "Gelo Seco",
-      description:
-        "Gelo seco para limpeza criogénica de equipamentos sensíveis à água, transporte em cadeia de frio e congelação rápida.",
+      title: "Gás Propano",
+      description: "Gás propano em garrafas de 12 kg e 45 kg e a granel, em Luanda, Angola.",
     },
   },
 ];

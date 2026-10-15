@@ -25,7 +25,9 @@ export function NewsList({
             href={routes.newsArticle(article.slug)}
             className="group flex h-full flex-col gap-6 p-6 transition-colors hover:bg-steel-50 md:p-8"
           >
-            <span className="font-mono text-label text-blue-600 uppercase">Notícia</span>
+            <span className="font-mono text-label text-blue-600 uppercase">
+              {article.dateLabel ? `Notícia · ${article.dateLabel}` : "Notícia"}
+            </span>
             <Heading className="text-xl leading-snug text-navy-900 group-hover:text-blue-600">
               {article.title}
             </Heading>

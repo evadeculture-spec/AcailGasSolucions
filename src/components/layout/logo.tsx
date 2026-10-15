@@ -1,9 +1,8 @@
 import { cn } from "@/lib/utils";
 
 /**
- * PROVISIONAL typographic wordmark.
- * The official Acail Gás logo could not be obtained during the audit; replace
- * this component's markup with the official vector logo (see docs/CONTENT_AUDIT.md §13).
+ * PROVISIONAL typographic wordmark for "Acail Gás Solucions".
+ * Replace this component's markup with the official vector logo when available.
  */
 export function Logo({
   tone = "dark",
@@ -33,7 +32,7 @@ export function Logo({
       >
         Acail
         <span className={cn("ml-1 font-normal", onDark ? "text-cryo-300" : "text-blue-500")}>
-          Gás
+          Gás Solucions
         </span>
       </span>
     </span>

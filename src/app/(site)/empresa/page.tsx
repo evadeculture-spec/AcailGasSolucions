@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { MediaPlaceholder } from "@/components/ui/media-placeholder";
 import { Section, SectionHeader } from "@/components/ui/section";
+import { siteConfig } from "@/config/site";
 import { company, milestones } from "@/content/pt/company";
 import { routes } from "@/lib/routes";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -14,7 +15,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "A Empresa",
   description:
-    "Fundada em 1996 e integrada no Grupo Acail, a Acail Gás produz, comercializa e distribui gases industriais, medicinais e alimentares.",
+    "Acail Gás Solucions: a área de gás da Acail Angola, constituída em 2005, com fábrica de gases industriais, alimentares e medicinais no Pólo Industrial de Viana.",
   path: routes.company,
 });
 
@@ -23,7 +24,7 @@ export default function CompanyPage() {
     <>
       <PageHero
         eyebrow="A Empresa"
-        title="Produção de gás a alta pressão, desde 1996."
+        title="Gases produzidos em Angola."
         lead={company.intro}
         breadcrumbs={[
           { name: "Início", path: routes.home },
@@ -38,7 +39,7 @@ export default function CompanyPage() {
               Quem somos
             </Eyebrow>
             <h2 id="quem-somos" className="text-h2 text-navy-900">
-              Uma gama completa de gases atmosféricos e gases específicos para cada indústria.
+              Uma fábrica de gases industriais, alimentares e medicinais em Luanda.
             </h2>
             <div className="prose-editorial mt-8">
               <p>{company.origin}</p>
@@ -47,21 +48,23 @@ export default function CompanyPage() {
             </div>
             <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-steel-200 pt-8">
               <div>
-                <dt className="font-mono text-label text-steel-500 uppercase">Fundação</dt>
-                <dd className="mt-2 font-display text-3xl text-navy-900">1996</dd>
+                <dt className="font-mono text-label text-steel-500 uppercase">Constituição</dt>
+                <dd className="mt-2 font-display text-3xl text-navy-900">
+                  {siteConfig.foundingYear}
+                </dd>
               </div>
               <div>
-                <dt className="font-mono text-label text-steel-500 uppercase">
-                  CAE {company.activityCode.code}
-                </dt>
-                <dd className="mt-2 text-steel-800">{company.activityCode.label}</dd>
+                <dt className="font-mono text-label text-steel-500 uppercase">Fábrica</dt>
+                <dd className="mt-2 text-steel-800">
+                  {siteConfig.contact.address.street}, {siteConfig.contact.address.detail}
+                </dd>
               </div>
             </dl>
           </div>
           <div className="lg:col-span-5 lg:col-start-8">
             <MediaPlaceholder
               ratio="3/4"
-              brief="Instalações de produção da Acail Gás em Souto, Santa Maria da Feira."
+              brief="Fábrica de gases da Acail no Pólo Industrial de Viana, Luanda."
             />
           </div>
         </Container>
@@ -69,7 +72,7 @@ export default function CompanyPage() {
 
       <Section tone="navy" aria-labelledby="missao">
         <Container className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-5" data-reveal>
+          <div className="lg:col-span-6" data-reveal>
             <Eyebrow index="02" tone="dark" className="mb-5">
               Missão
             </Eyebrow>
@@ -77,30 +80,15 @@ export default function CompanyPage() {
               {company.mission}
             </h2>
           </div>
-          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-6 lg:col-start-7">
-            <div>
-              <h3 className="font-mono text-label text-steel-400 uppercase">Valores</h3>
-              <ul className="mt-5 space-y-2">
-                {company.values.map((value) => (
-                  <li key={value} className="font-display text-3xl tracking-[-0.02em] text-white">
-                    {value}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-mono text-label text-steel-400 uppercase">
-                Pilares do Grupo Acail
-              </h3>
-              <ul className="mt-5 space-y-3 text-lg text-steel-200">
-                {company.pillars.map((pillar) => (
-                  <li key={pillar} className="flex items-center gap-3">
-                    <span aria-hidden="true" className="h-px w-4 bg-cryo-400" />
-                    {pillar}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="lg:col-span-5 lg:col-start-8">
+            <h3 className="font-mono text-label text-steel-400 uppercase">Compromisso global</h3>
+            <ul className="mt-5 space-y-2">
+              {company.values.map((value) => (
+                <li key={value} className="font-display text-4xl tracking-[-0.02em] text-white">
+                  {value}
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </Section>
@@ -108,10 +96,10 @@ export default function CompanyPage() {
       <Section id="historia" aria-labelledby="historia-title">
         <SectionHeader
           id="historia-title"
-          eyebrow="História e identidade"
+          eyebrow="História"
           index="03"
-          title="Um percurso construído com visão empreendedora."
-          intro="Marcos confirmados do percurso da Acail Gás em Portugal e Espanha."
+          title="Um percurso construído em Angola."
+          intro="Marcos confirmados da atividade de gás da Acail em Angola."
         />
         <Container>
           <ol className="relative grid gap-px overflow-hidden rounded-sm border border-steel-200 bg-steel-200 md:grid-cols-2 lg:grid-cols-4">
@@ -128,10 +116,8 @@ export default function CompanyPage() {
             ))}
           </ol>
           <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
-            <ArrowLink href={routes.distributors}>
-              Rede de distribuidores em Portugal e Espanha
-            </ArrowLink>
-            <ArrowLink href={routes.quality}>Qualidade e segurança</ArrowLink>
+            <ArrowLink href={routes.quality}>Qualidade e certificação</ArrowLink>
+            <ArrowLink href={routes.news}>Notícias</ArrowLink>
           </div>
         </Container>
       </Section>

@@ -57,52 +57,30 @@ const nextConfig: NextConfig = {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
   async redirects() {
-    // Legacy routes of the previous website mapped to the new information architecture.
-    const legacyGasTypes: Array<[string, string]> = [
-      ["Industriais", "gases-industriais"],
-      ["Alimentares", "gases-alimentares"],
-      ["Medicinais", "gases-medicinais"],
-      ["Especiais", "gases-especiais"],
-      ["Dispositivo.Medico", "gases-dispositivo-medico"],
-      ["Gelo.Seco", "gelo-seco"],
-    ];
-    const legacyIndustries: Array<[string, string]> = [
-      ["Metalurgia", "metalurgia"],
-      ["Metalomecanica", "metalomecanica"],
-      ["Alimentar", "alimentar"],
-      ["Laboratorios", "laboratorios"],
-      ["Quimica.*", "quimica"],
-      ["Ambiente", "ambiente"],
-      ["Soldadura", "soldadura"],
+    // Pages of the corporate Angola website (acailangola.com) mapped to this site.
+    const legacy: Array<[string, string]> = [
+      ["/quem-somos.php", "/empresa"],
+      ["/contactos.php", "/contactos"],
+      ["/noticias.php", "/noticias"],
+      ["/servicos.php", "/servicos"],
+      ["/saude-gas-medicinal.php", "/produtos/gases-medicinais"],
+      ["/saude-redes-gases-medicinais.php", "/servicos#medical-networks"],
+      [
+        "/produtos-industriais-gas-industrial-gas-soldadura-e-corte.php",
+        "/produtos/gases-soldadura-corte",
+      ],
+      ["/produtos-industriais-gas-industrial-gases-alimentares.php", "/produtos/gases-alimentares"],
+      ["/produtos-industriais-gas-industrial-gases-ambiente.php", "/produtos/gas-ambiente"],
+      ["/produtos-industriais-redes-de-gases-industriais.php", "/servicos#industrial-networks"],
+      ["/acail-gas-propano.php", "/produtos/gas-propano"],
+      ["/distribuidores", "/contactos"],
     ];
 
     return [
-      ...legacyGasTypes.map(([type, slug]) => ({
-        source: "/gases/index",
-        has: [{ type: "query" as const, key: "type", value: type }],
-        destination: `/produtos/${slug}`,
-        permanent: true,
-      })),
-      ...legacyIndustries.map(([industry, slug]) => ({
-        source: "/industria/post",
-        has: [{ type: "query" as const, key: "industry", value: industry }],
-        destination: `/industrias/${slug}`,
-        permanent: true,
-      })),
+      ...legacy.map(([source, destination]) => ({ source, destination, permanent: true })),
       // English and Spanish versions are planned; until they launch, send visitors to Portuguese.
       { source: "/en/:path*", destination: "/", permanent: false },
       { source: "/es/:path*", destination: "/", permanent: false },
-      { source: "/empresa/historia", destination: "/empresa#historia", permanent: true },
-      { source: "/gases", destination: "/produtos", permanent: true },
-      { source: "/gases/index", destination: "/produtos", permanent: true },
-      { source: "/industria", destination: "/industrias", permanent: true },
-      { source: "/industria/post", destination: "/industrias", permanent: true },
-      { source: "/noticia", destination: "/noticias", permanent: true },
-      {
-        source: "/resolucao-alternativa-litigios.html",
-        destination: "/termos#resolucao-litigios",
-        permanent: true,
-      },
     ];
   },
 };

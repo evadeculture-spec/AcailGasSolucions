@@ -15,8 +15,8 @@ export function HomeIndustries() {
           tone="dark"
           eyebrow="Indústrias"
           index="03"
-          title="Gases para todas as indústrias."
-          intro="Da siderurgia ao laboratório, da embalagem alimentar ao tratamento de águas: cada setor tem processos, purezas e formas de fornecimento próprias."
+          title="Gases para a indústria angolana."
+          intro="Da metalomecânica aos hospitais, da indústria alimentar ao tratamento de águas: cada setor tem processos e formas de fornecimento próprios."
           action={
             <ArrowLink href={routes.industries} tone="dark">
               Explorar indústrias e aplicações

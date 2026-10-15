@@ -1,67 +1,65 @@
 import type { SupplyMode, SupplyModeId } from "@/types/content";
 
-/** Source: acailgas.pt/servicos (PT/EN) and homepage. */
+/** Sources: acailangola.com — services, gas networks, medical gas and welding pages. */
 export const supplyModes: SupplyMode[] = [
   {
     id: "cylinders",
     index: "01",
     title: "Garrafas e quadros",
     summary:
-      "Garrafas individuais ou interligadas, adequadas a consumos mensais baixos ou médios que exigem mobilidade.",
+      "Gases em garrafas de várias capacidades e em quadros, conjuntos de garrafas ligadas entre si.",
     points: [
-      "Garrafas individuais para utilização móvel",
-      "Garrafas interligadas em quadro para maior autonomia",
-      "Adequado a consumos mensais baixos ou médios",
+      "Garrafas clássicas de várias capacidades",
+      "Quadros: conjuntos de garrafas ligadas entre si",
+      "Oxigénio medicinal em garrafas Compact B de 2, 5 e 15 litros, com redutor-debitómetro integrado",
+      "Acetileno em garrafas de 14 L, 5 L e tara perdida de 1 L",
+      "Propano em garrafas de 12 kg e 45 kg",
     ],
   },
   {
-    id: "bulk",
+    id: "liquid",
     index: "02",
-    title: "Líquidos criogénicos a granel",
-    summary:
-      "Gases criogénicos entregues pela frota própria de camiões em todo o território e armazenados nas instalações do cliente.",
-    points: [
-      "Frota própria de camiões em todo o território",
-      "Tanques criogénicos isolados a vácuo nas instalações do cliente",
-      "Tanque dimensionado com o cliente em função do volume, pressão, caudal e utilização",
-    ],
+    title: "Fornecimento a granel",
+    summary: "Oxigénio medicinal em forma líquida e propano a granel.",
+    points: ["Oxigénio medicinal em forma líquida", "Propano a granel"],
   },
   {
-    id: "on-site",
+    id: "industrial-networks",
     index: "03",
-    title: "Produção on-site",
-    summary:
-      "Sistemas de produção de azoto, oxigénio e hidrogénio nas instalações do cliente, construídos, operados e mantidos pela Acail Gás.",
+    title: "Redes de gases industriais",
+    summary: "Redes de gases industriais à medida, segundo as normas internacionais aplicáveis.",
     points: [
-      "Produção de azoto, oxigénio e hidrogénio",
-      "Componentes normalizados",
-      "Unidade central com sistema de back-up",
-      "Construção, operação e manutenção asseguradas pela Acail Gás",
+      "Conceção da rede segundo normas internacionais",
+      "Especificações técnicas e planos",
+      "Seleção de equipamentos e materiais adequados a cada gás",
+      "Instalações de elevada segurança",
+      "Inspeção e manutenção",
     ],
   },
   {
-    id: "equipment",
+    id: "medical-networks",
     index: "04",
-    title: "Equipamentos",
-    summary: "Equipamentos para armazenagem, gaseificação e distribuição de gases.",
+    title: "Redes de gases medicinais",
+    summary:
+      "Redes que levam o gás desde a fonte, no exterior da unidade de saúde, até às enfermarias, blocos operatórios e salas de recobro.",
     points: [
-      "Gaseificadores",
-      "Quadros elétricos",
-      "Tanques e vasos evaporadores",
-      "Válvulas e acessórios",
+      "Projeto adaptado a cada clínica ou hospital",
+      "Instalação",
+      "Manutenção",
+      "Auditoria",
+      "Formação das equipas",
     ],
   },
   {
-    id: "telemetry",
+    id: "welding-equipment",
     index: "05",
-    title: "Acail Vision",
-    summary:
-      "Telemetria e gestão: monitorização contínua do nível de produto no reservatório e gestão modular de redes e garrafas de gases medicinais.",
+    title: "Soldadura e corte",
+    summary: "Material e acessórios para a utilização segura dos gases de soldadura e corte.",
     points: [
-      "Monitorização contínua do nível de produto no reservatório",
-      "Planeamento de entregas com base nos dados de consumo",
-      "Sistema modular de gestão de redes e garrafas de gases medicinais",
-      "Adaptado às necessidades de cada cliente",
+      "Reguladores e centrais de acetileno",
+      "Carros de garrafas",
+      "Material de soldadura e acessórios",
+      "Serviço de oxicorte",
     ],
   },
 ];
@@ -71,11 +69,3 @@ export function getSupplyMode(id: SupplyModeId): SupplyMode {
   if (!mode) throw new Error(`Unknown supply mode: ${id}`);
   return mode;
 }
-
-export const acailVision = {
-  name: "Acail Vision",
-  statement:
-    "Um sistema modular de gestão de redes e garrafas de gases medicinais, adaptado às necessidades de cada cliente, para maior economia e fiabilidade na utilização de recursos.",
-  telemetry:
-    "Nos fornecimentos a granel, a telemetria Acail Vision monitoriza continuamente o nível de produto no reservatório, o que facilita o planeamento das entregas.",
-} as const;

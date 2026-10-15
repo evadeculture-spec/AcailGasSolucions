@@ -1,19 +1,17 @@
+import { siteConfig } from "@/config/site";
 import type { Certification } from "@/types/content";
 
-/** Source: acailgas.pt/empresa, homepage, public information notice (2025). */
+/** Sources: acailangola.com (Quem Somos, Notícias), ISO 22000 certificate, ANGOP, RNA. */
 export const company = {
   intro:
-    "A Acail Gás é uma empresa de produção, comercialização e distribuição de gases industriais, medicinais e alimentares.",
-  statement:
-    "Produzimos uma gama completa de gases atmosféricos e desenvolvemos gases específicos para a sua indústria.",
+    "A Acail Gás Solucions é a área de gás da Acail Angola: produção e comercialização de gases industriais, alimentares e medicinais a partir da fábrica do Pólo Industrial de Viana, em Luanda.",
+  statement: "Gases para a indústria, a saúde e o setor alimentar, produzidos em Angola.",
   origin:
-    "Fundada em 1996, a Acail Gás dedica-se à produção de gás a alta pressão e integra o Grupo Acail.",
-  group:
-    "O Grupo Acail tem vindo a enraizar os pilares do seu sucesso através de uma visão empreendedora.",
-  mission: "A satisfação do cliente, com foco na melhoria contínua e na formação das equipas.",
-  values: ["Disponibilidade", "Dedicação", "Compromisso"],
-  pillars: ["Responsabilidade", "Rigor", "Qualidade", "Criatividade", "Inovação"],
-  activityCode: { code: "20110", label: "Fabricação de gases industriais" },
+    "A Acail Angola foi constituída em 2005 e organiza a sua atividade em seis setores. O setor do gás abrange a produção de gases industriais, medicinais e alimentares.",
+  group: "A Acail Angola integra o Grupo Acail, com empresas em Portugal, Espanha e Angola.",
+  mission:
+    "A satisfação do cliente e a qualidade dos processos e produtos, com um compromisso global com a qualidade, a segurança e o ambiente.",
+  values: ["Qualidade", "Segurança", "Ambiente"],
 } as const;
 
 export interface Milestone {
@@ -22,35 +20,40 @@ export interface Milestone {
   body: string;
 }
 
-/** Only milestones confirmed on the official website. Undated items have no confirmed year. */
+/** Only milestones confirmed by official or press sources. */
 export const milestones: Milestone[] = [
   {
-    year: "1996",
-    title: "Fundação da Acail Gás",
-    body: "Início da atividade dedicada à produção de gás a alta pressão, no seio do Grupo Acail.",
+    year: "2005",
+    title: "Constituição da Acail Angola",
+    body: "Início da atividade em Angola, organizada em seis setores, entre os quais o gás.",
   },
   {
-    year: "2016",
-    title: "Nova unidade de produção criogénica",
-    body: "Aprovação de projeto cofinanciado para uma nova unidade de produção criogénica de gás, com capacidade prevista de 40 toneladas por dia.",
+    year: "2015",
+    title: "Inauguração da fábrica de gases",
+    body: "Inauguração, no Pólo Industrial de Viana, das unidades de produção de gases medicinais, alimentares e industriais.",
   },
   {
-    title: "Gelo seco em Aranda de Duero",
-    body: "Produção de gelo seco na fábrica de Aranda de Duero, em Espanha.",
+    year: "2023",
+    title: "Visita oficial",
+    body: "O Primeiro-Ministro de Portugal, António Costa, visitou a fábrica de gases no Pólo Industrial de Viana.",
   },
   {
-    title: "Nova morada em Espanha",
-    body: "Instalação do escritório de Espanha no Polígono Industrial de Budiño, em O Porriño (Pontevedra).",
+    year: "2024",
+    title: "Certificação ISO 22000:2018",
+    body: "Certificação da produção, comercialização e distribuição de azoto, oxigénio e dióxido de carbono para a indústria alimentar.",
   },
 ];
 
-/**
- * Certifications. Rendered only when `verified` is true.
- * ISO 9001:2015 is referenced in indexed snippets of the official homepage but
- * the certificate (issuer, scope, validity) has not been confirmed.
- */
+/** Certifications. Rendered only when `verified` is true (document confirmed). */
 export const certifications: Certification[] = [
-  { name: "ISO 9001:2015", scope: "Sistema de gestão da qualidade", verified: false },
+  {
+    name: "ISO 22000:2018",
+    scope:
+      "Produção, comercialização e distribuição de azoto, oxigénio e dióxido de carbono para a indústria alimentar — Pólo Industrial de Viana, Luanda.",
+    issued: "12-02-2024",
+    documentUrl: siteConfig.links.certificateIso22000,
+    verified: true,
+  },
 ];
 
 export const verifiedCertifications = certifications.filter((item) => item.verified);

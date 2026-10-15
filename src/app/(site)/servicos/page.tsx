@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import { Gauge, Radio } from "lucide-react";
-
 import { CtaBand } from "@/components/sections/cta-band";
-import { IsobarField } from "@/components/sections/isobar-field";
 import { PageHero } from "@/components/sections/page-hero";
 import { Container } from "@/components/ui/container";
-import { Eyebrow } from "@/components/ui/eyebrow";
 import { MediaPlaceholder } from "@/components/ui/media-placeholder";
 import { Section } from "@/components/ui/section";
-import { acailVision, supplyModes } from "@/content/pt/services";
+import { supplyModes } from "@/content/pt/services";
 import { supplyModeIcons } from "@/features/services/supply-mode-list";
 import { contactHref, routes } from "@/lib/routes";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -16,23 +12,23 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Serviços e Soluções",
   description:
-    "Garrafas e quadros, líquidos criogénicos a granel, produção on-site de azoto, oxigénio e hidrogénio, equipamentos e telemetria Acail Vision.",
+    "Garrafas e quadros, fornecimento a granel, redes de gases industriais e medicinais e material de soldadura e corte, em Luanda.",
   path: routes.services,
 });
 
 const placeholders: Partial<Record<(typeof supplyModes)[number]["id"], string>> = {
-  bulk: "Camião cisterna da frota Acail Gás e tanque criogénico instalado num cliente.",
-  "on-site": "Unidade de produção on-site instalada nas instalações de um cliente.",
+  "industrial-networks": "Rede de gases industriais instalada pela Acail numa unidade industrial.",
+  "medical-networks": "Rede de gases medicinais numa unidade de saúde.",
 };
 
 export default function ServicesPage() {
-  const modes = supplyModes.filter((mode) => mode.id !== "telemetry");
+  const modes = supplyModes;
   return (
     <>
       <PageHero
         eyebrow="Serviços e soluções"
-        title="Sistemas de fornecimento à medida do consumo."
-        lead="Da garrafa individual à produção nas instalações do cliente, a solução é dimensionada em função do volume, da pressão, do caudal e da utilização."
+        title="Fornecimento e redes de gases à medida."
+        lead="Da garrafa individual à rede de gases de uma unidade industrial ou hospitalar: fornecimento, projeto, instalação e manutenção."
         breadcrumbs={[
           { name: "Início", path: routes.home },
           { name: "Serviços", path: routes.services },
@@ -88,43 +84,6 @@ export default function ServicesPage() {
               </article>
             );
           })}
-        </Container>
-      </Section>
-
-      <Section
-        tone="dark"
-        id="acail-vision"
-        className="scroll-mt-16 overflow-hidden"
-        aria-labelledby="acail-vision-title"
-      >
-        <IsobarField animated={false} className="absolute inset-0 h-full w-full opacity-30" />
-        <Container className="relative grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-6" data-reveal>
-            <Eyebrow index="05" tone="dark" className="mb-5">
-              Telemetria e gestão
-            </Eyebrow>
-            <h2 id="acail-vision-title" className="text-h1 text-white">
-              {acailVision.name}
-            </h2>
-            <p className="mt-8 max-w-xl text-lead text-steel-300">{acailVision.statement}</p>
-          </div>
-          <div className="grid gap-px self-end overflow-hidden rounded-sm border border-white/12 bg-white/12 lg:col-span-5 lg:col-start-8">
-            <div className="bg-navy-900 p-8">
-              <Gauge aria-hidden="true" className="size-6 text-cryo-300" strokeWidth={1.4} />
-              <h3 className="mt-6 text-xl text-white">Granel</h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-steel-300">
-                {acailVision.telemetry}
-              </p>
-            </div>
-            <div className="bg-navy-900 p-8">
-              <Radio aria-hidden="true" className="size-6 text-cryo-300" strokeWidth={1.4} />
-              <h3 className="mt-6 text-xl text-white">Gases medicinais</h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-steel-300">
-                Gestão modular de redes e garrafas de gases medicinais, adaptada às necessidades de
-                cada cliente.
-              </p>
-            </div>
-          </div>
         </Container>
       </Section>
 

@@ -47,11 +47,11 @@ test("unknown routes return a 404 page", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toContainText("não existe");
 });
 
-test("legacy URLs redirect to the new architecture", async ({ page }) => {
-  await page.goto("/gases/index?type=Medicinais&gas=Oxigenio");
-  await expect(page).toHaveURL(/\/produtos\/gases-medicinais/);
-  await page.goto("/industria/post?industry=Metalurgia");
-  await expect(page).toHaveURL(/\/industrias\/metalurgia/);
+test("legacy URLs of the corporate site redirect to the new architecture", async ({ page }) => {
+  await page.goto("/saude-gas-medicinal.php");
+  await expect(page).toHaveURL(/\/produtos\/gases-medicinais$/);
+  await page.goto("/acail-gas-propano.php");
+  await expect(page).toHaveURL(/\/produtos\/gas-propano$/);
 });
 
 test("skip link moves focus to the main content", async ({ page, isMobile }) => {
@@ -80,11 +80,11 @@ test.describe("desktop navigation", () => {
 
     await trigger.click();
     await page
-      .getByRole("link", { name: /Gelo Seco/ })
+      .getByRole("link", { name: /Gás Propano/ })
       .first()
       .click();
-    await expect(page).toHaveURL(/\/produtos\/gelo-seco$/);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Gelo Seco");
+    await expect(page).toHaveURL(/\/produtos\/gas-propano$/);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Gás Propano");
     await expect(trigger).toHaveAttribute("aria-expanded", "false");
   });
 });
@@ -116,7 +116,7 @@ test.describe("mobile navigation", () => {
   });
 
   test("pages do not scroll horizontally", async ({ page }) => {
-    for (const path of ["/", "/produtos/gases-industriais", "/contactos", "/distribuidores"]) {
+    for (const path of ["/", "/produtos/gases-soldadura-corte", "/contactos", "/saude"]) {
       await page.goto(path);
       const overflow = await page.evaluate(
         () => document.documentElement.scrollWidth - window.innerWidth,

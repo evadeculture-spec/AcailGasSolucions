@@ -8,12 +8,12 @@ import type { LegalDocument } from "@/types/content";
  */
 
 const { legalName, contact } = siteConfig;
-const addressLine = `${contact.address.street}, ${contact.address.postalCode} ${contact.address.locality}, ${contact.address.country}`;
+const addressLine = `${contact.address.street}, ${contact.address.detail}, ${contact.address.locality}, ${contact.address.country}`;
 
 export const privacyPolicy: LegalDocument = {
   title: "Política de Privacidade",
   updatedLabel: "Versão inicial do novo website",
-  intro: `A ${legalName} respeita a privacidade de quem visita este website e trata os dados pessoais de acordo com o Regulamento Geral sobre a Proteção de Dados (RGPD) e a legislação nacional aplicável.`,
+  intro: `A ${legalName} respeita a privacidade de quem visita este website e trata os dados pessoais de acordo com a Lei n.º 22/11, de 17 de junho (Lei da Proteção de Dados Pessoais), e demais legislação angolana aplicável.`,
   sections: [
     {
       id: "responsavel",
@@ -65,7 +65,7 @@ export const privacyPolicy: LegalDocument = {
       title: "Os seus direitos",
       paragraphs: [
         `Pode exercer os direitos de acesso, retificação, apagamento, limitação, portabilidade e oposição, bem como retirar o consentimento a qualquer momento, contactando ${contact.email}.`,
-        "Tem ainda o direito de apresentar reclamação à Comissão Nacional de Proteção de Dados (CNPD).",
+        "Tem ainda o direito de apresentar reclamação à Agência de Proteção de Dados (APD).",
       ],
     },
     {
@@ -78,7 +78,8 @@ export const privacyPolicy: LegalDocument = {
   ],
   seo: {
     title: "Política de Privacidade",
-    description: "Como a Acail Gás trata os dados pessoais recolhidos através deste website.",
+    description:
+      "Como a Acail Gás Solucions trata os dados pessoais recolhidos através deste website.",
   },
 };
 
@@ -119,7 +120,7 @@ export const cookiePolicy: LegalDocument = {
   ],
   seo: {
     title: "Política de Cookies",
-    description: "Informação sobre a utilização de cookies no website da Acail Gás.",
+    description: "Informação sobre a utilização de cookies no website da Acail Gás Solucions.",
   },
 };
 
@@ -133,14 +134,14 @@ export const termsAndConditions: LegalDocument = {
       title: "Natureza da informação",
       paragraphs: [
         "Os conteúdos deste website têm caráter informativo e não constituem proposta contratual. As características, disponibilidade e condições de fornecimento dos produtos e serviços são confirmadas em proposta comercial.",
-        "A informação sobre gases medicinais não substitui o folheto informativo dos medicamentos nem o aconselhamento de um profissional de saúde.",
+        "A informação sobre gases medicinais não substitui a prescrição nem o aconselhamento de um profissional de saúde.",
       ],
     },
     {
       id: "seguranca-produtos",
       title: "Segurança dos produtos",
       paragraphs: [
-        "O manuseamento de gases deve respeitar as respetivas Fichas de Dados de Segurança. As fichas podem ser solicitadas através do formulário de contacto ou do email geral.",
+        "O manuseamento de gases deve respeitar a respetiva documentação de segurança, que pode ser solicitada através do formulário de contacto ou do email do departamento de gás.",
       ],
     },
     {
@@ -154,25 +155,17 @@ export const termsAndConditions: LegalDocument = {
       id: "responsabilidade",
       title: "Responsabilidade",
       paragraphs: [
-        "A Acail Gás procura manter a informação atualizada e correta, mas não garante a ausência de erros ou interrupções do website. Os links para websites de terceiros são disponibilizados para conveniência, não sendo a Acail Gás responsável pelos respetivos conteúdos.",
-      ],
-    },
-    {
-      id: "resolucao-litigios",
-      title: "Resolução alternativa de litígios",
-      paragraphs: [
-        "Em caso de litígio de consumo, o consumidor pode recorrer a uma entidade de resolução alternativa de litígios de consumo. A lista de entidades está disponível no Portal do Consumidor (www.consumidor.gov.pt).",
-        "Está igualmente disponível o Livro de Reclamações Eletrónico (www.livroreclamacoes.pt).",
+        "A Acail Gás Solucions procura manter a informação atualizada e correta, mas não garante a ausência de erros ou interrupções do website. Os links para websites de terceiros são disponibilizados para conveniência, não sendo a Acail Gás Solucions responsável pelos respetivos conteúdos.",
       ],
     },
     {
       id: "lei",
       title: "Lei aplicável",
-      paragraphs: ["Estes termos regem-se pela lei portuguesa."],
+      paragraphs: ["Estes termos regem-se pela lei da República de Angola."],
     },
   ],
   seo: {
     title: "Termos e Condições",
-    description: "Condições de utilização do website da Acail Gás.",
+    description: "Condições de utilização do website da Acail Gás Solucions.",
   },
 };

@@ -11,9 +11,9 @@ export const routes = {
   industries: "/industrias",
   industry: (slug: IndustrySlug) => `/industrias/${slug}`,
   services: "/servicos",
-  acailVision: "/servicos#acail-vision",
+  industrialNetworks: "/servicos#industrial-networks",
+  medicalNetworks: "/servicos#medical-networks",
   health: "/saude",
-  distributors: "/distribuidores",
   news: "/noticias",
   newsArticle: (slug: string) => `/noticias/${slug}`,
   contact: "/contactos",
@@ -23,7 +23,7 @@ export const routes = {
 } as const;
 
 export type ContactSubject =
-  "proposta" | "informacao-tecnica" | "fds" | "distribuicao" | "saude" | "outro";
+  "proposta" | "informacao-tecnica" | "redes" | "saude" | "soldadura" | "outro";
 
 /** Contact page link with a pre-selected subject and, optionally, a product category. */
 export function contactHref(subject: ContactSubject, product?: ProductCategorySlug): string {

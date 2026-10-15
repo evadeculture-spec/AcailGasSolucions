@@ -1,4 +1,4 @@
-import { absoluteUrl, siteConfig } from "@/config/site";
+import { absoluteUrl, primaryPhone, siteConfig } from "@/config/site";
 
 /**
  * Schema.org builders. Only verified data is used: no ratings, offers,
@@ -20,23 +20,30 @@ export function organizationSchema() {
     legalName: siteConfig.legalName,
     url: siteConfig.url,
     description: siteConfig.description,
-    foundingDate: String(siteConfig.foundingYear),
     email: contact.email,
-    telephone: contact.phones[0].display.replace(/\s/g, ""),
-    faxNumber: contact.fax.replace(/\s/g, ""),
+    telephone: primaryPhone.display.replace(/\s/g, ""),
     address: {
       "@type": "PostalAddress",
-      streetAddress: contact.address.street,
-      postalCode: contact.address.postalCode,
+      streetAddress: `${contact.address.street}, ${contact.address.detail}`,
       addressLocality: contact.address.locality,
-      addressRegion: contact.address.municipality,
       addressCountry: contact.address.countryCode,
     },
-    contactPoint: contact.phones.map((phone) => ({
+    location: {
+      "@type": "Place",
+      name: contact.address.name,
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: contact.address.latitude,
+        longitude: contact.address.longitude,
+      },
+    },
+    contactPoint: contact.departments.map((department) => ({
       "@type": "ContactPoint",
-      telephone: phone.display.replace(/\s/g, ""),
-      contactType: "customer service",
-      areaServed: ["PT", "ES"],
+      name: department.name,
+      email: department.email,
+      telephone: department.phones[0]?.display.replace(/\s/g, ""),
+      contactType: "sales",
+      areaServed: "AO",
       availableLanguage: ["pt"],
     })),
   };

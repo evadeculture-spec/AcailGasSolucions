@@ -3,7 +3,8 @@ import type { SubstanceId } from "@/types/content";
 /**
  * Universal reference data for gases (not company claims).
  * - Formula and CAS registry numbers: standard chemical identifiers.
- * - Cylinder shoulder colours: EN 1089-3 colour code (RAL references).
+ * - Cylinder shoulder colours: EN 1089-3 colour code (RAL references). Empty
+ *   when the product is not supplied in EN 1089-3 cylinders (ozone, LPG).
  */
 
 export interface CylinderColour {
@@ -60,22 +61,6 @@ export const substances: Record<SubstanceId, Substance> = {
     cas: "124-38-9",
     shoulder: [{ label: "Cinzento", ral: "RAL 7037", hex: "#7D7F7D" }],
   },
-  helium: {
-    id: "helium",
-    name: "Hélio",
-    formula: ["He"],
-    formulaText: "He",
-    cas: "7440-59-7",
-    shoulder: [{ label: "Castanho", ral: "RAL 8008", hex: "#6F4F28" }],
-  },
-  hydrogen: {
-    id: "hydrogen",
-    name: "Hidrogénio",
-    formula: ["H", { sub: "2" }],
-    formulaText: "H2",
-    cas: "1333-74-0",
-    shoulder: [{ label: "Vermelho", ral: "RAL 3000", hex: "#AF2B1E" }],
-  },
   acetylene: {
     id: "acetylene",
     name: "Acetileno",
@@ -92,18 +77,34 @@ export const substances: Record<SubstanceId, Substance> = {
     cas: "10024-97-2",
     shoulder: [{ label: "Azul", ral: "RAL 5010", hex: "#0E294B" }],
   },
-  "sulfur-dioxide": {
-    id: "sulfur-dioxide",
-    name: "Dióxido de enxofre",
-    formula: ["SO", { sub: "2" }],
-    formulaText: "SO2",
-    cas: "7446-09-5",
-    shoulder: [{ label: "Amarelo", ral: "RAL 1018", hex: "#F8D600" }],
+  carbox: {
+    id: "carbox",
+    name: "Carbox",
+    // Medical mixture of carbon dioxide and oxygen.
+    formula: ["CO", { sub: "2" }, "/O", { sub: "2" }],
+    formulaText: "CO2/O2",
+    shoulder: [white, { label: "Cinzento", ral: "RAL 7037", hex: "#7D7F7D" }],
+  },
+  ozone: {
+    id: "ozone",
+    name: "Ozono",
+    formula: ["O", { sub: "3" }],
+    formulaText: "O3",
+    cas: "10028-15-6",
+    shoulder: [],
+  },
+  propane: {
+    id: "propane",
+    name: "Propano",
+    formula: ["C", { sub: "3" }, "H", { sub: "8" }],
+    formulaText: "C3H8",
+    cas: "74-98-6",
+    shoulder: [],
   },
   "medical-air": {
     id: "medical-air",
-    name: "Ar medicinal",
-    // Synthetic medical air is a mixture of oxygen and nitrogen.
+    name: "Ar sintético",
+    // Synthetic air: approx. 79 % nitrogen and 21 % oxygen.
     formula: ["O", { sub: "2" }, "/N", { sub: "2" }],
     formulaText: "O2/N2",
     shoulder: [white, black],

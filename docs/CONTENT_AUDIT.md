@@ -1,4 +1,63 @@
-# CONTENT_AUDIT — Acail Gás
+# CONTENT_AUDIT — Acail Gás Solucions (Angola)
+
+> **Âmbito atual (15-10-2026):** o website foi reorientado, a pedido do cliente, para a **vertente de gás da Acail Angola**, com o nome **Acail Gás Solucions**. A §A abaixo é a auditoria em vigor. As secções seguintes (§1–§15) documentam a auditoria anterior da operação portuguesa (acailgas.pt) e mantêm-se apenas como histórico: **nenhum conteúdo português é publicado**.
+
+## A. Auditoria Angola (em vigor)
+
+### A.1 Método e limitações
+
+- O site oficial `acailangola.com` está bloqueado pela rede do ambiente de desenvolvimento (tal como acailgas.pt). Os conteúdos foram recolhidos de excertos indexados do domínio oficial e de imprensa angolana e portuguesa.
+- Marcação: ✅ site oficial / certificado · 🟡 imprensa · 🔴 a validar.
+
+### A.2 Empresa
+
+- ✅ Acail Angola constituída em **2005**; atividade dividida em **seis setores**; o setor do gás cobre a produção de gases **industriais, medicinais e alimentares**.
+- ✅ Missão: satisfação do cliente e qualidade dos processos e produtos; compromisso global com **qualidade, segurança e ambiente**.
+- 🟡 Integra o Grupo Acail (empresas em Portugal, Espanha e Angola). 🔴 Confirmar formulação.
+- 🟡 Inauguração das unidades de gases no Pólo Industrial de Viana pelo Ministro Joaquim David — ANGOP, **2015** (notícia também no site oficial).
+- 🟡 Visita de António Costa à fábrica de gases — RNA, **junho de 2023**.
+- 🟡 Economia & Mercado (c. 2019): investimento de 175 M USD, clientes incluem hospitais de Luanda e grandes operadoras petrolíferas, filiais no Bengo e Benguela, 200 trabalhadores. 🔴 Dados antigos — **não publicados** (exceto o setor "Petróleo e Gás" listado sem detalhe).
+- ✅ A aquisição da Acail Gás, S.A. pela Linde abrange **Portugal e Espanha**; nenhuma fonte inclui Angola.
+
+### A.3 Certificação
+
+- ✅ **ISO 22000:2018** — certificado n.º PT007826, emitido em 12-02-2024 (acreditação UKAS): produção, comercialização e distribuição de azoto, oxigénio e dióxido de carbono para a indústria alimentar, PIV, Luanda. **Publicada** com link para o PDF oficial. 🔴 Confirmar entidade certificadora e validade.
+
+### A.4 Produtos (5 linhas)
+
+- ✅ **Soldadura e corte:** árgon (ISO 14175 I1), CO₂, azoto para plasma (F1); misturas Arco 8 e Arco 20 (Ar/CO₂, M21), Arco T5, Arco T12 (Ar/CO₂/O₂, M24), Helarco (Ar/He/CO₂), Helar 5, Helar 30, Hidarg, Hidazo; acetileno em garrafas de 14 L, 5 L e tara perdida 1 L; reguladores, centrais e carros de garrafa.
+- ✅ **Alimentares:** azoto, CO₂ e árgon (inertização), CO₂ e azoto (congelação, refrigeração incl. uva e mosto, transporte a temperatura controlada); O₂/N₂/CO₂ no âmbito ISO 22000.
+- ✅ **Medicinais:** oxigénio (elevada pureza; oxigenoterapia aguda/crónica; líquido, quadros, Compact B 2/5/15 L com redutor-debitómetro, garrafas clássicas), protóxido de azoto, ar sintético (~79/21), azoto medicinal, Carbox (CO₂/O₂), CO₂ medicinal.
+- ✅ **Ambiente:** ozono (água potável e engarrafada, desinfeção de garrafas, aquários e depuração de bivalves, odores em ETAR e matadouros, águas residuais) e ácido carbónico (água potável).
+- ✅ **Propano:** garrafas de 12 kg e 45 kg e granel. 🔴 Data de lançamento não confirmada.
+- 🔴 Capacidades, purezas numéricas e preços não publicados.
+
+### A.5 Serviços
+
+- ✅ Redes de gases industriais (normas internacionais, especificações, seleção de materiais, instalações de elevada segurança, inspeção e manutenção).
+- ✅ Redes de gases medicinais (projeto à medida, instalação, manutenção, auditoria, formação; da fonte exterior às enfermarias, blocos e recobro).
+- ✅ Oxicorte.
+
+### A.6 Contactos (✅ acailangola.com/contactos)
+
+- Fábrica de Gases Industriais, Alimentares e Medicinais — PIV, Estrada Nacional Luanda–Catete, km 23, Viana, Luanda. GPS 8°55'54.92"S 13°24'51.03"E.
+- Gás: +244 946 423 679 · +244 948 190 748 · +244 942 568 607 · gas@acailangola.com. 🔴 A página Angola do site português indica +244 925 564 021 — divergência.
+- Medicinal: +244 923 986 120 · 922 327 152 · 921 915 666 · medicinal@acailangola.com.
+- Soldadura: +244 941 836 757 · 948 190 748 · soldadura@acailangola.com.
+
+### A.7 Lista de validação (Angola)
+
+1. Nome "Acail Gás Solucions" — confirmar uso da marca com a Acail Angola.
+2. Denominação social "Acail Angola, S.A." (fonte: registos comerciais) e NIF.
+3. Logótipo oficial, fotografias da fábrica de Viana, frota e redes.
+4. Entidade certificadora e validade da ISO 22000; outras certificações.
+5. Data do lançamento do propano; data exata da inauguração (2015).
+6. Telefone principal (divergência 946 423 679 / 925 564 021).
+7. Revisão jurídica das políticas (Lei n.º 22/11 — Proteção de Dados Pessoais).
+
+---
+
+## Histórico — auditoria da operação portuguesa (não publicada)
 
 Auditoria de conteúdos do website oficial `https://www.acailgas.pt/`, base para o novo website institucional.
 

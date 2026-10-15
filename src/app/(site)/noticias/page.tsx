@@ -11,7 +11,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Notícias",
   description:
-    "Notícias e atualidade da Acail Gás: produção, instalações e rede em Portugal e Espanha.",
+    "Notícias da fábrica de gases da Acail no Pólo Industrial de Viana, em Luanda: certificação, novos produtos e visitas.",
   path: routes.news,
 });
 
@@ -20,7 +20,7 @@ export default function NewsPage() {
     <>
       <PageHero
         eyebrow="Notícias"
-        title="Atualidade da Acail Gás."
+        title="Atualidade da Acail Gás Solucions."
         breadcrumbs={[
           { name: "Início", path: routes.home },
           { name: "Notícias", path: routes.news },

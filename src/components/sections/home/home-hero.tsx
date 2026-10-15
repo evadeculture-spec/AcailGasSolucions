@@ -14,10 +14,10 @@ const featuredGases: SubstanceId[] = [
   "nitrogen",
   "argon",
   "carbon-dioxide",
-  "hydrogen",
-  "helium",
-  "acetylene",
   "nitrous-oxide",
+  "ozone",
+  "propane",
+  "acetylene",
 ];
 
 export function HomeHero() {
@@ -40,7 +40,7 @@ export function HomeHero() {
       <Container className="flex min-h-[min(calc(100svh-var(--spacing-header)),60rem)] flex-col justify-between gap-16 pt-16 pb-10 md:pt-24 lg:pt-28">
         <div className="max-w-4xl">
           <Eyebrow tone="dark" className="mb-8 animate-fade-up">
-            Gases industriais · medicinais · alimentares
+            Gases industriais · medicinais · alimentares · Angola
           </Eyebrow>
           <h1
             id="hero-title"

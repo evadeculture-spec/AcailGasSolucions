@@ -7,14 +7,15 @@ import { footerNavigation, legalNavigation } from "@/content/pt/navigation";
 import { Logo } from "./logo";
 
 export function SiteFooter() {
-  const { contact, links } = siteConfig;
+  const { contact } = siteConfig;
+  const gasDepartment = contact.departments[0];
   return (
     <footer className="dark-surface border-t border-white/10 bg-ink-950 text-steel-300">
       <Container className="grid gap-14 py-16 md:py-20 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-4">
           <Link
             href="/"
-            aria-label="Acail Gás — página inicial"
+            aria-label="Acail Gás Solucions — página inicial"
             className="inline-block rounded-xs"
           >
             <Logo />
@@ -23,7 +24,9 @@ export function SiteFooter() {
 
           <address className="mt-8 space-y-5 text-[0.9375rem] not-italic">
             <div>
-              <p className="mb-1.5 font-mono text-label text-steel-400 uppercase">Sede</p>
+              <p className="mb-1.5 font-mono text-label text-steel-400 uppercase">
+                Fábrica de gases
+              </p>
               {formatAddressLines().map((line) => (
                 <span key={line} className="block">
                   {line}
@@ -33,7 +36,7 @@ export function SiteFooter() {
             <div>
               <p className="mb-1.5 font-mono text-label text-steel-400 uppercase">Telefone</p>
               <p className="flex flex-wrap gap-x-3">
-                {contact.phones.map((phone) => (
+                {gasDepartment.phones.map((phone) => (
                   <a
                     key={phone.href}
                     href={phone.href}
@@ -43,7 +46,6 @@ export function SiteFooter() {
                   </a>
                 ))}
               </p>
-              <p className="mt-1 text-xs text-steel-400">{contact.phoneNotice}</p>
             </div>
             <div>
               <p className="mb-1.5 font-mono text-label text-steel-400 uppercase">Email</p>
@@ -83,17 +85,6 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
-            <li>
-              <a
-                href={links.complaintsBook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-              >
-                Livro de Reclamações
-                <span className="sr-only"> (abre numa nova janela)</span>
-              </a>
-            </li>
           </ul>
         </Container>
       </div>

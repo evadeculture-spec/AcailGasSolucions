@@ -11,14 +11,13 @@ import { sitemapPaths } from "@/lib/seo/sitemap-paths";
 const knownPaths = new Set(sitemapPaths().map((entry) => entry.path));
 
 describe("content integrity", () => {
-  it("has exactly the six product categories from the official site", () => {
+  it("has exactly the five gas lines of the Angola operation", () => {
     expect(productCategories.map((category) => category.name)).toEqual([
-      "Gases Industriais",
+      "Gases para Soldadura e Corte",
       "Gases Alimentares",
       "Gases Medicinais",
-      "Gases Especiais",
-      "Gases Dispositivo Médico",
-      "Gelo Seco",
+      "Gás Ambiente",
+      "Gás Propano",
     ]);
   });
 
@@ -61,6 +60,14 @@ describe("content integrity", () => {
   it("never publishes unverified certifications", () => {
     expect(verifiedCertifications.every((item) => item.verified)).toBe(true);
     expect(verifiedCertifications.length).toBeLessThanOrEqual(certifications.length);
+    for (const certification of verifiedCertifications) {
+      expect(certification.documentUrl, certification.name).toMatch(/^https:\/\//);
+    }
+  });
+
+  it("contains no Portugal-specific contacts", () => {
+    const serialized = JSON.stringify({ productCategories, industries, newsArticles });
+    expect(serialized).not.toMatch(/acailgrupo|Souto|\+351/);
   });
 
   it("only links navigation to pages that exist", () => {

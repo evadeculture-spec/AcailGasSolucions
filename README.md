@@ -1,6 +1,6 @@
-# Acail Gás: website institucional
+# Acail Gás Solucions: website institucional (Angola)
 
-Website institucional da Acail Gás (PT-PT), desenvolvido com Next.js 16 (App Router), React 19, TypeScript strict e Tailwind CSS 4.
+Website institucional da **Acail Gás Solucions**, a vertente de gás da Acail Angola (Luanda), desenvolvido com Next.js 16 (App Router), React 19, TypeScript strict e Tailwind CSS 4.
 
 > **Estado:** pronto para revisão e publicação em ambiente de pré-produção. Antes da publicação final, é preciso validar os pontos listados em [Pendências](#pendências).
 
@@ -32,12 +32,12 @@ Para os testes e2e, faça primeiro `npm run build`. Se o Chromium do Playwright 
 
 ## Variáveis de ambiente
 
-| Variável               | Âmbito   | Obrigatória       | Descrição                                                                             |
-| ---------------------- | -------- | ----------------- | ------------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL` | público  | recomendada       | URL base para canonical, sitemap e Open Graph. Por omissão: `https://www.acailgas.pt` |
-| `RESEND_API_KEY`       | servidor | para o formulário | Chave da API [Resend](https://resend.com)                                             |
-| `CONTACT_TO_EMAIL`     | servidor | para o formulário | Destinatário dos pedidos de contacto                                                  |
-| `CONTACT_FROM_EMAIL`   | servidor | para o formulário | Remetente verificado no Resend (ex.: `website@acailgas.pt`)                           |
+| Variável               | Âmbito   | Obrigatória       | Descrição                                                                                          |
+| ---------------------- | -------- | ----------------- | -------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL` | público  | recomendada       | URL base para canonical, sitemap e Open Graph. Por omissão: `https://acailgassolucions.vercel.app` |
+| `RESEND_API_KEY`       | servidor | para o formulário | Chave da API [Resend](https://resend.com)                                                          |
+| `CONTACT_TO_EMAIL`     | servidor | para o formulário | Destinatário dos pedidos de contacto                                                               |
+| `CONTACT_FROM_EMAIL`   | servidor | para o formulário | Remetente verificado no Resend (ex.: `website@acailgas.pt`)                                        |
 
 **Sem estas três variáveis, o formulário não envia nada.** A API responde `503 not_configured` e o utilizador vê uma mensagem honesta com o email e o telefone da sede. Nenhum envio é simulado.
 
@@ -78,20 +78,20 @@ Executado neste repositório, no estado atual:
 
 - `npm run lint`: sem erros
 - `npm run typecheck`: sem erros
-- `npm test`: 42 testes unitários a passar
-- `npm run build`: 40 rotas geradas (todas estáticas, exceto `/api/contact`)
-- `npm run test:e2e`: 118 testes a passar e 6 ignorados por design (testes exclusivos de desktop ou de mobile), em desktop (1440 px) e mobile (Pixel 7). Inclui o axe WCAG 2.2 AA em 14 páginas, a navegação, o formulário, o SEO e os headers de segurança.
+- `npm test`: 43 testes unitários a passar
+- `npm run build`: 36 rotas geradas (todas estáticas, exceto `/api/contact`)
+- `npm run test:e2e`: 110 testes a passar e 6 ignorados por design (testes exclusivos de desktop ou de mobile), em desktop (1440 px) e mobile (Pixel 7). Inclui o axe WCAG 2.2 AA em 14 páginas, a navegação, o formulário, o SEO e os headers de segurança.
 
 Os valores de Lighthouse e Core Web Vitals **não foram medidos** neste ambiente. Ver `docs/DEPLOYMENT.md` → "Medição de desempenho".
 
 ## Pendências
 
-Resumo, com o detalhe em `docs/CONTENT_AUDIT.md` §14:
+Resumo, com o detalhe em `docs/CONTENT_AUDIT.md` §A.7:
 
-1. **Enquadramento da marca após a aquisição pela Linde** (entidade, logótipo, domínio, contactos).
+1. Confirmar com a Acail Angola o uso do nome **Acail Gás Solucions** e a denominação social.
 2. Logótipo oficial: o atual é um **wordmark tipográfico provisório** (`src/components/layout/logo.tsx`).
-3. Fotografias institucionais com direitos de utilização. Os espaços estão identificados como "Fotografia institucional a integrar".
-4. Certificação ISO 9001:2015: só será publicada após confirmação documental (`src/content/pt/company.ts`).
-5. Composições das misturas, textos e datas das notícias e lista completa de distribuidores com contactos.
+3. Fotografias da fábrica de Viana e das redes de gases, com direitos de utilização.
+4. Entidade certificadora e validade da ISO 22000:2018.
+5. Capacidades, purezas e datas em falta (propano, inauguração).
 6. Credenciais de email do formulário e destinatário.
-7. Revisão jurídica das políticas de privacidade, cookies e termos.
+7. Revisão jurídica das políticas (lei angolana).

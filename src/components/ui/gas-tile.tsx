@@ -28,11 +28,12 @@ export function GasTile({
   variant,
   size = "md",
   tone = "light",
-  showSwatch = true,
+  showSwatch,
   showCas = true,
   className,
 }: GasTileProps) {
   const data = getSubstance(substance);
+  const swatch = (showSwatch ?? true) && data.shoulder.length > 0;
   const dark = tone === "dark";
   return (
     <div
@@ -52,7 +53,7 @@ export function GasTile({
         >
           {showCas ? (data.cas ? `CAS ${data.cas}` : "Mistura") : null}
         </span>
-        {showSwatch ? <ShoulderSwatch substance={substance} /> : null}
+        {swatch ? <ShoulderSwatch substance={substance} /> : null}
       </div>
       <Formula
         substance={substance}

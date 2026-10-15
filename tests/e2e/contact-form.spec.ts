@@ -13,9 +13,9 @@ test.describe("contact form", () => {
   });
 
   test("pre-selects subject and product from the URL", async ({ page }) => {
-    await page.goto("/contactos?assunto=fds&produto=gases-especiais#formulario");
-    await expect(page.getByLabel("Assunto")).toHaveValue("fds");
-    await expect(page.getByLabel(/Produto de interesse/)).toHaveValue("gases-especiais");
+    await page.goto("/contactos?assunto=saude&produto=gases-medicinais#formulario");
+    await expect(page.getByLabel("Assunto")).toHaveValue("saude");
+    await expect(page.getByLabel(/Produto de interesse/)).toHaveValue("gases-medicinais");
   });
 
   test("reports honestly when delivery is not configured", async ({ page }) => {
@@ -27,7 +27,7 @@ test.describe("contact form", () => {
       "ainda não está ativo",
     );
     await expect(page.getByRole("alert").filter({ hasText: "O envio" })).toContainText(
-      "geral@acailgrupo.pt",
+      "gas@acailangola.com",
     );
   });
 
@@ -52,7 +52,7 @@ async function fillValidForm(page: import("@playwright/test").Page) {
   await page.getByLabel("Email").fill("maria@example.pt");
   await page
     .getByLabel(/Mensagem/)
-    .fill("Pretendemos uma proposta para fornecimento de azoto líquido.");
+    .fill("Pretendemos uma proposta para fornecimento de árgon e misturas Arco.");
   await page.getByLabel(/Li e aceito/).check();
   await page.getByRole("button", { name: "Enviar mensagem" }).click();
 }

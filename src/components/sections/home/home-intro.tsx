@@ -3,16 +3,15 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Section } from "@/components/ui/section";
 import { company } from "@/content/pt/company";
-import { industries } from "@/content/pt/industries";
 import { productCategories } from "@/content/pt/products";
 import { siteConfig } from "@/config/site";
 import { routes } from "@/lib/routes";
 
 const facts = [
-  { value: String(siteConfig.foundingYear), label: "Ano de fundação da Acail Gás" },
-  { value: String(productCategories.length).padStart(2, "0"), label: "Categorias de produto" },
-  { value: String(industries.length), label: "Setores de aplicação" },
-  { value: "PT · ES", label: "Rede de distribuição em Portugal e Espanha" },
+  { value: String(siteConfig.foundingYear), label: "Constituição da Acail Angola" },
+  { value: String(productCategories.length).padStart(2, "0"), label: "Linhas de gás" },
+  { value: "ISO 22000", label: "Gases alimentares certificados" },
+  { value: "Km 23", label: "Pólo Industrial de Viana, Luanda" },
 ];
 
 export function HomeIntro() {
@@ -20,14 +19,14 @@ export function HomeIntro() {
     <Section aria-labelledby="apresentacao-title">
       <Container className="grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <Eyebrow index="01">A Acail Gás</Eyebrow>
+          <Eyebrow index="01">Acail Gás Solucions</Eyebrow>
         </div>
         <div className="lg:col-span-8" data-reveal>
           <h2 id="apresentacao-title" className="text-h2 text-navy-900">
-            Desde 1996, a produzir gás a alta pressão para a indústria, a saúde e o setor alimentar.
+            Gases produzidos em Angola, para a indústria, a saúde e o setor alimentar.
           </h2>
           <p className="mt-8 max-w-2xl text-lead text-steel-600">
-            {company.origin} {company.statement}
+            {company.origin} {company.group}
           </p>
           <ArrowLink href={routes.company} className="mt-8">
             Conhecer a empresa

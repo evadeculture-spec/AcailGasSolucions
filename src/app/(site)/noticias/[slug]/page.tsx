@@ -31,7 +31,7 @@ export default async function NewsArticlePage({ params }: PageProps<"/noticias/[
   return (
     <>
       <PageHero
-        eyebrow="Notícia"
+        eyebrow={article.dateLabel ? `Notícia · ${article.dateLabel}` : "Notícia"}
         title={article.title}
         lead={article.summary}
         breadcrumbs={[
@@ -48,7 +48,7 @@ export default async function NewsArticlePage({ params }: PageProps<"/noticias/[
             ))}
           </article>
           {article.facts ? (
-            <aside aria-label="Dados do projeto" className="lg:col-span-4 lg:col-start-9">
+            <aside aria-label="Dados da notícia" className="lg:col-span-4 lg:col-start-9">
               <dl className="border-t border-navy-900">
                 {article.facts.map((fact) => (
                   <div key={fact.label} className="border-b border-steel-200 py-5">

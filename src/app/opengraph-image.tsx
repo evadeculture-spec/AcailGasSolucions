@@ -54,7 +54,8 @@ export default function OpengraphImage() {
           A
         </div>
         <div style={{ display: "flex" }}>
-          Acail<span style={{ color: "#7fd6ee", marginLeft: 10, fontWeight: 400 }}>Gás</span>
+          Acail
+          <span style={{ color: "#7fd6ee", marginLeft: 10, fontWeight: 400 }}>Gás Solucions</span>
         </div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 24, maxWidth: 900 }}>
@@ -62,11 +63,11 @@ export default function OpengraphImage() {
           Gases industriais, medicinais e alimentares.
         </div>
         <div style={{ fontSize: 26, color: "#c3cbd5" }}>
-          Produção, comercialização e distribuição desde 1996.
+          Produzidos em Angola · Pólo Industrial de Viana, Luanda
         </div>
       </div>
       <div style={{ display: "flex", gap: 40, fontSize: 30, color: "#94a0af" }}>
-        {["O₂", "N₂", "Ar", "CO₂", "H₂", "He", "C₂H₂"].map((formula) => (
+        {["O₂", "N₂", "Ar", "CO₂", "N₂O", "O₃", "C₃H₈"].map((formula) => (
           <span key={formula}>{formula}</span>
         ))}
       </div>

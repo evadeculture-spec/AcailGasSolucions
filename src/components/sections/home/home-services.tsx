@@ -16,11 +16,11 @@ export function HomeServices() {
               Serviços e fornecimento
             </Eyebrow>
             <h2 id="servicos-title" className="text-h2 text-navy-900">
-              Da garrafa ao tanque criogénico.
+              Da garrafa à rede de gases.
             </h2>
             <p className="mt-6 max-w-md text-lead text-steel-600">
-              A forma de fornecimento é definida com cada cliente, em função do volume, da pressão,
-              do caudal e da utilização.
+              Garrafas, quadros e fornecimento a granel, e projeto, instalação e manutenção de redes
+              de gases industriais e medicinais.
             </p>
             <ArrowLink href={routes.services} className="mt-8">
               Ver serviços e soluções

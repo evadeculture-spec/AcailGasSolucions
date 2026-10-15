@@ -8,31 +8,28 @@ export const primaryNavigation: NavGroup[] = [
     label: "Empresa",
     href: routes.company,
     children: [
-      { label: "A Empresa", href: routes.company, description: "Origem, missão e valores" },
-      { label: "História e identidade", href: routes.history, description: "Percurso desde 1996" },
+      { label: "A Empresa", href: routes.company, description: "Missão e compromissos" },
+      { label: "História", href: routes.history, description: "Percurso desde 2005" },
       {
-        label: "Qualidade e segurança",
+        label: "Qualidade e certificação",
         href: routes.quality,
-        description: "Boas Práticas de Fabrico, FDS e informação pública",
+        description: "ISO 22000:2018 e compromisso com a segurança",
       },
-      { label: "Notícias", href: routes.news, description: "Atualidade da Acail Gás" },
+      { label: "Notícias", href: routes.news, description: "Atualidade da fábrica de gases" },
     ],
   },
   {
     label: "Produtos",
     href: routes.products,
-    children: [
-      ...productCategories.map((category) => ({
-        label: category.name,
-        href: routes.product(category.slug),
-        description: category.summary,
-      })),
-    ],
+    children: productCategories.map((category) => ({
+      label: category.name,
+      href: routes.product(category.slug),
+      description: category.summary,
+    })),
   },
   { label: "Indústrias", href: routes.industries },
   { label: "Serviços", href: routes.services },
   { label: "Saúde", href: routes.health },
-  { label: "Distribuidores", href: routes.distributors },
 ];
 
 export const contactNavItem: NavItem = { label: "Contactos", href: routes.contact };
@@ -50,7 +47,8 @@ export const footerNavigation: Array<{ title: string; items: NavItem[] }> = [
     items: [
       { label: "Indústrias e aplicações", href: routes.industries },
       { label: "Serviços e fornecimento", href: routes.services },
-      { label: "Acail Vision", href: routes.acailVision },
+      { label: "Redes de gases industriais", href: routes.industrialNetworks },
+      { label: "Redes de gases medicinais", href: routes.medicalNetworks },
       { label: "Saúde", href: routes.health },
     ],
   },
@@ -58,8 +56,7 @@ export const footerNavigation: Array<{ title: string; items: NavItem[] }> = [
     title: "Empresa",
     items: [
       { label: "A Empresa", href: routes.company },
-      { label: "Qualidade e segurança", href: routes.quality },
-      { label: "Rede de distribuidores", href: routes.distributors },
+      { label: "Qualidade e certificação", href: routes.quality },
       { label: "Notícias", href: routes.news },
       { label: "Contactos", href: routes.contact },
     ],

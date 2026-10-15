@@ -15,7 +15,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "Indústrias e Aplicações",
   description:
-    "Gases para metalurgia, metalomecânica, soldadura, química, ambiente, laboratórios, indústria alimentar e outros setores.",
+    "Gases para metalomecânica e soldadura, hospitais e clínicas, indústria alimentar e bebidas, tratamento de águas, aquicultura e petróleo e gás em Angola.",
   path: routes.industries,
 });
 
@@ -24,8 +24,8 @@ export default function IndustriesPage() {
     <>
       <PageHero
         eyebrow="Indústrias e aplicações"
-        title="Gases para todas as indústrias."
-        lead="Cada setor tem processos, requisitos de pureza e formas de consumo próprios. Conheça as principais aplicações dos nossos gases."
+        title="Gases para a indústria angolana."
+        lead="Cada setor tem processos, requisitos de pureza e formas de consumo próprios. Conheça as principais aplicações dos gases produzidos em Luanda."
         breadcrumbs={[
           { name: "Início", path: routes.home },
           { name: "Indústrias", path: routes.industries },
@@ -86,7 +86,7 @@ export default function IndustriesPage() {
           eyebrow="Setores servidos"
           index="02"
           title="Presença transversal"
-          intro="Para além dos setores apresentados em detalhe, fornecemos gases para um vasto conjunto de atividades."
+          intro="Setores servidos pela fábrica de gases do Pólo Industrial de Viana."
         />
         <Container>
           <IndustryIndex items={industries} />

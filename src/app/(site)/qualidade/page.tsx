@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FileText, FlaskConical, ShieldCheck } from "lucide-react";
+import { FileCheck2, Network, ShieldCheck } from "lucide-react";
 
 import { CtaBand } from "@/components/sections/cta-band";
 import { PageHero } from "@/components/sections/page-hero";
@@ -7,33 +7,32 @@ import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Section } from "@/components/ui/section";
-import { verifiedCertifications } from "@/content/pt/company";
-import { siteConfig } from "@/config/site";
+import { company, verifiedCertifications } from "@/content/pt/company";
 import { contactHref, routes } from "@/lib/routes";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Qualidade e Segurança",
+  title: "Qualidade e Certificação",
   description:
-    "Gases medicinais produzidos segundo as Boas Práticas de Fabrico, Fichas de Dados de Segurança e informação ao público sobre prevenção de acidentes graves.",
+    "Certificação ISO 22000:2018 para azoto, oxigénio e dióxido de carbono alimentares e compromisso com a qualidade, a segurança e o ambiente.",
   path: routes.quality,
 });
 
 const commitments = [
   {
-    icon: FlaskConical,
-    title: "Boas Práticas de Fabrico",
-    body: "Os gases medicinais são classificados como medicamentos e são produzidos segundo as Boas Práticas de Fabrico, com níveis elevados de pureza.",
-  },
-  {
-    icon: FileText,
-    title: "Fichas de Dados de Segurança",
-    body: "As Fichas de Dados de Segurança são elaboradas de acordo com o Regulamento (UE) 2020/878 e identificam perigos, utilizações e medidas de manuseamento seguro.",
+    icon: FileCheck2,
+    title: "Segurança alimentar",
+    body: "A produção, comercialização e distribuição de azoto, oxigénio e dióxido de carbono para a indústria alimentar está certificada segundo a ISO 22000:2018.",
   },
   {
     icon: ShieldCheck,
-    title: "Prevenção de acidentes graves",
-    body: "O estabelecimento está abrangido pelo regime de prevenção de acidentes graves (Decreto-Lei n.º 150/2015, de 5 de agosto), com informação ao público disponível.",
+    title: "Qualidade, segurança e ambiente",
+    body: company.mission,
+  },
+  {
+    icon: Network,
+    title: "Redes de gases",
+    body: "As redes de gases industriais e medicinais são concebidas segundo normas internacionais, com instalações de elevada segurança, inspeção e manutenção.",
   },
 ];
 
@@ -41,18 +40,61 @@ export default function QualityPage() {
   return (
     <>
       <PageHero
-        eyebrow="Qualidade e segurança"
-        title="Qualidade com rigor documentado."
-        lead="A produção e o fornecimento de gases exigem controlo de pureza, documentação técnica e segurança em todas as etapas."
+        eyebrow="Qualidade e certificação"
+        title="Qualidade certificada."
+        lead="A produção e o fornecimento de gases exigem pureza, segurança e controlo em todas as etapas, da fábrica à tomada de utilização."
         breadcrumbs={[
           { name: "Início", path: routes.home },
-          { name: "Qualidade e segurança", path: routes.quality },
+          { name: "Qualidade e certificação", path: routes.quality },
         ]}
       />
 
-      <Section aria-labelledby="compromissos">
+      <Section aria-labelledby="certificacoes">
         <Container>
           <Eyebrow index="01" className="mb-5">
+            Certificação
+          </Eyebrow>
+          <h2 id="certificacoes" className="text-h2 text-navy-900">
+            Certificações
+          </h2>
+          <ul className="mt-10 grid gap-6 lg:grid-cols-2">
+            {verifiedCertifications.map((certification) => (
+              <li
+                key={certification.name}
+                className="flex flex-col rounded-sm border border-steel-200 bg-white p-8 md:p-10"
+                data-reveal
+              >
+                <p className="font-display text-4xl tracking-[-0.02em] text-navy-900">
+                  {certification.name}
+                </p>
+                {certification.scope ? (
+                  <p className="mt-4 text-[0.9375rem] leading-relaxed text-steel-600">
+                    {certification.scope}
+                  </p>
+                ) : null}
+                {certification.issued ? (
+                  <p className="mt-4 font-mono text-label text-steel-500 uppercase">
+                    Emitido em {certification.issued}
+                  </p>
+                ) : null}
+                {certification.documentUrl ? (
+                  <ButtonLink
+                    href={certification.documentUrl}
+                    variant="secondary"
+                    className="mt-8 self-start"
+                  >
+                    Ver certificado (PDF)
+                  </ButtonLink>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <Section tone="muted" aria-labelledby="compromissos">
+        <Container>
+          <Eyebrow index="02" className="mb-5">
             Compromissos
           </Eyebrow>
           <h2 id="compromissos" className="sr-only">
@@ -67,70 +109,13 @@ export default function QualityPage() {
               </li>
             ))}
           </ul>
-
-          {verifiedCertifications.length > 0 ? (
-            <div className="mt-16">
-              <h2 className="text-h3 text-navy-900">Certificações</h2>
-              <ul className="mt-6 flex flex-wrap gap-4">
-                {verifiedCertifications.map((certification) => (
-                  <li
-                    key={certification.name}
-                    className="rounded-sm border border-steel-200 px-5 py-4"
-                  >
-                    <p className="font-display text-xl text-navy-900">{certification.name}</p>
-                    {certification.scope ? (
-                      <p className="mt-1 text-sm text-steel-600">{certification.scope}</p>
-                    ) : null}
-                    {certification.issuer ? (
-                      <p className="text-sm text-steel-500">{certification.issuer}</p>
-                    ) : null}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-        </Container>
-      </Section>
-
-      <Section tone="muted" aria-labelledby="documentacao">
-        <Container className="grid gap-12 lg:grid-cols-2">
-          <div data-reveal>
-            <Eyebrow index="02" className="mb-5">
-              Documentação técnica
-            </Eyebrow>
-            <h2 id="documentacao" className="text-h2 text-navy-900">
-              Fichas técnicas e de segurança
-            </h2>
-            <p className="mt-6 max-w-lg text-lead text-steel-600">
-              A ficha técnica e a Ficha de Dados de Segurança de cada gás ou mistura podem ser
-              solicitadas à nossa equipa.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <ButtonLink href={contactHref("fds")}>Pedir Ficha de Dados de Segurança</ButtonLink>
-            </div>
-          </div>
-          <div className="rounded-sm border border-steel-200 bg-white p-8 md:p-10" data-reveal>
-            <p className="font-mono text-label text-steel-500 uppercase">Informação ao público</p>
-            <h3 className="mt-4 text-h3 text-navy-900">Regime de prevenção de acidentes graves</h3>
-            <p className="mt-4 text-[0.9375rem] leading-relaxed text-steel-600">
-              Informação a comunicar ao público sobre o estabelecimento da Acail Gás, nos termos do
-              Decreto-Lei n.º 150/2015, de 5 de agosto (documento de março de 2025).
-            </p>
-            <ButtonLink
-              href={siteConfig.links.publicSafetyInfo}
-              variant="secondary"
-              className="mt-8"
-            >
-              Consultar documento (PDF)
-            </ButtonLink>
-          </div>
         </Container>
       </Section>
 
       <CtaBand
         title="Precisa de documentação técnica?"
-        body="Indique o gás ou a mistura e a utilização prevista. A nossa equipa envia a documentação aplicável."
-        primary={{ label: "Pedir documentação", href: contactHref("fds") }}
+        body="Indique o gás ou a mistura e a utilização prevista. A nossa equipa envia a informação aplicável."
+        primary={{ label: "Pedir informação técnica", href: contactHref("informacao-tecnica") }}
       />
     </>
   );

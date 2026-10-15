@@ -1,14 +1,14 @@
-import { Boxes, Cylinder, Factory, Radio, Truck } from "lucide-react";
+import { Cylinder, Droplets, Flame, HeartPulse, Network } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import type { SupplyMode, SupplyModeId } from "@/types/content";
 
 const icons: Record<SupplyModeId, LucideIcon> = {
   cylinders: Cylinder,
-  bulk: Truck,
-  "on-site": Factory,
-  equipment: Boxes,
-  telemetry: Radio,
+  liquid: Droplets,
+  "industrial-networks": Network,
+  "medical-networks": HeartPulse,
+  "welding-equipment": Flame,
 };
 
 /** Compact list of supply modes (used on product and home pages). */

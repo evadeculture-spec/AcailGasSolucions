@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Mail, Phone } from "lucide-react";
 
-import { siteConfig } from "@/config/site";
+import { primaryPhone, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import type { NavGroup, NavItem } from "@/types/content";
 
@@ -173,12 +173,9 @@ export function MobileNav({ groups, contact }: { groups: NavGroup[]; contact: Na
           </Link>
 
           <div className="mt-8 space-y-3 text-sm text-steel-300">
-            <a
-              href={siteConfig.contact.phones[0].href}
-              className="flex items-center gap-3 hover:text-white"
-            >
+            <a href={primaryPhone.href} className="flex items-center gap-3 hover:text-white">
               <Phone aria-hidden="true" className="size-4 text-cryo-300" strokeWidth={1.5} />
-              {siteConfig.contact.phones[0].display}
+              {primaryPhone.display}
             </a>
             <a
               href={`mailto:${siteConfig.contact.email}`}

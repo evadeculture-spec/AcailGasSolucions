@@ -1,246 +1,156 @@
 import type { Industry } from "@/types/content";
 
 /**
- * Industries listed on acailgas.pt/industria. Only sectors with substantive,
- * verified content get a `detail` (and therefore a dedicated page).
+ * Sectors served by the gas division of Acail Angola. Only sectors with
+ * substantive, verified content get a `detail` (and therefore a dedicated page).
  */
 export const industries: Industry[] = [
-  { slug: "agricultura-pecuaria-pescas", name: "Agricultura, Pecuária e Pescas" },
   {
-    slug: "alimentar",
-    name: "Alimentar",
+    slug: "alimentar-bebidas",
+    name: "Alimentar e Bebidas",
     detail: {
-      summary: "Inertização, desoxigenação e embalagem de alimentos e bebidas.",
+      summary:
+        "Inertização, congelação, refrigeração e tratamento de água, com gases certificados ISO 22000.",
       intro:
-        "O oxigénio encurta a vida útil dos alimentos líquidos e afeta o seu valor nutricional. Gases como o azoto, o dióxido de carbono, o árgon e as respetivas misturas permitem inertizar e desoxigenar, preservando o produto.",
+        "A produção de azoto, oxigénio e dióxido de carbono para a indústria alimentar está certificada segundo a ISO 22000:2018. Os gases alimentares protegem os produtos e garantem a cadeia de frio.",
       applications: [
-        {
-          title: "Bebidas",
-          body: "O azoto e o dióxido de carbono, puros ou combinados, evitam a oxidação sem recurso a antioxidantes.",
-        },
-        {
-          title: "Embalagem com azoto líquido",
-          body: "Uma gota de azoto líquido, introduzida imediatamente antes do fecho, purga o ar e pressuriza a embalagem.",
-        },
-        {
-          title: "Lacticínios",
-          body: "O dióxido de carbono é o gás mais utilizado na embalagem de lacticínios, por inibir ou reduzir a atividade microbiana.",
-        },
-        {
-          title: "Hidrogenação",
-          body: "O hidrogénio é utilizado na hidrogenação de gorduras vegetais, como na produção de margarina.",
-        },
-        {
-          title: "Cadeia de frio",
-          body: "O gelo seco garante a cadeia de frio no transporte de refeições e permite a congelação rápida de alimentos.",
-        },
-      ],
-      substances: ["nitrogen", "carbon-dioxide", "argon", "hydrogen"],
-      categories: ["gases-alimentares", "gelo-seco"],
-      seo: {
-        title: "Indústria Alimentar",
-        description:
-          "Gases para inertização, desoxigenação, bebidas, embalagem, lacticínios, hidrogenação e cadeia de frio.",
-      },
-    },
-  },
-  {
-    slug: "ambiente",
-    name: "Ambiente",
-    detail: {
-      summary: "Tratamento de águas, efluentes, resíduos e compostos orgânicos voláteis.",
-      intro:
-        "Os gases industriais intervêm em processos de tratamento que contribuem para o cumprimento das exigências ambientais.",
-      applications: [
-        {
-          title: "Controlo de pH",
-          body: "O dióxido de carbono é utilizado no tratamento de águas e águas residuais para controlo e neutralização de pH.",
-        },
-        {
-          title: "Remineralização",
-          body: "Remineralização de água produzida por osmose inversa com dióxido de carbono.",
-        },
-        {
-          title: "Resíduos e COV",
-          body: "Tratamento de resíduos e de compostos orgânicos voláteis, e recuperação de solventes.",
-        },
-      ],
-      substances: ["carbon-dioxide"],
-      categories: ["gases-industriais"],
-      seo: {
-        title: "Ambiente",
-        description:
-          "Gases para controlo de pH, remineralização de água, recuperação de solventes e tratamento de resíduos e COV.",
-      },
-    },
-  },
-  { slug: "construcao", name: "Construção" },
-  { slug: "eletronica-telecomunicacoes", name: "Eletrónica e Telecomunicações" },
-  { slug: "farmaceutica", name: "Farmacêutica" },
-  {
-    slug: "laboratorios",
-    name: "Laboratórios",
-    detail: {
-      summary: "Gases de pureza ultra elevada e misturas para instrumentação analítica.",
-      intro:
-        "A instrumentação analítica depende de gases de muito elevada pureza e de misturas específicas. A Acail Gás fornece gases de pureza ultra elevada, como árgon, azoto, hélio e hidrogénio, e misturas de análise e calibração.",
-      applications: [
-        {
-          title: "Cromatografia gasosa e líquida",
-          body: "Gases para cromatógrafos gasosos com múltiplos detetores e para cromatógrafos líquidos. O hidrogénio é utilizado como gás de arraste e combustível.",
-        },
-        {
-          title: "Espectrometria",
-          body: "Gases para espectrómetros UV/VIS e de ressonância magnética nuclear (RMN).",
-        },
-        {
-          title: "Calibração",
-          body: "Misturas de análise e calibração, e gases de teste e calibração.",
-        },
-        {
-          title: "Investigação e desenvolvimento",
-          body: "Gases de elevada pureza para atividades de I&D.",
-        },
-      ],
-      substances: ["argon", "nitrogen", "helium", "hydrogen"],
-      categories: ["gases-especiais"],
-      seo: {
-        title: "Laboratórios",
-        description:
-          "Gases de pureza ultra elevada e misturas de calibração para cromatografia, espectrometria e I&D.",
-      },
-    },
-  },
-  { slug: "lazer", name: "Lazer" },
-  {
-    slug: "metalomecanica",
-    name: "Metalomecânica",
-    detail: {
-      summary: "Oxicorte, corte por plasma e corte laser.",
-      intro:
-        "Os processos de corte de metais recorrem a gases combustíveis, comburentes e de assistência, ajustados ao material e à espessura.",
-      applications: [
-        {
-          title: "Oxicorte",
-          body: "Corte de aço com chama de acetileno e oxigénio.",
-        },
-        {
-          title: "Corte por plasma",
-          body: "Corte de metais através de um arco de plasma.",
-        },
-        {
-          title: "Corte laser",
-          body: "Corte de chapa fina e de outros materiais, como vidro e cerâmica.",
-        },
-      ],
-      substances: ["acetylene", "oxygen"],
-      categories: ["gases-industriais"],
-      seo: {
-        title: "Metalomecânica",
-        description: "Gases e misturas para oxicorte, corte por plasma e corte laser.",
-      },
-    },
-  },
-  {
-    slug: "metalurgia",
-    name: "Metalurgia",
-    detail: {
-      summary: "Siderurgia, processos térmicos e hidrometalurgia.",
-      intro:
-        "Os gases intervêm em várias etapas da produção e transformação de metais: fundição, processos térmicos, fornos de arco elétrico e afinação.",
-      applications: [
-        {
-          title: "Siderurgia",
-          body: "Afinação do aço com oxigénio e homogeneização do aço com azoto e árgon.",
-        },
-        {
-          title: "Fundição e processos térmicos",
-          body: "Aplicações em processos de fundição de metais, processos térmicos e fornos de arco elétrico.",
-        },
-        {
-          title: "Hidrometalurgia",
-          body: "Processos de flutuação com azoto e dióxido de carbono, e lixiviação de cobre, ouro, prata e zinco com oxigénio.",
-        },
-        {
-          title: "Atmosferas redutoras",
-          body: "O hidrogénio atua como gás redutor em processos metalúrgicos e cerâmicos.",
-        },
-      ],
-      substances: ["oxygen", "nitrogen", "argon", "carbon-dioxide", "hydrogen"],
-      categories: ["gases-industriais"],
-      seo: {
-        title: "Metalurgia",
-        description:
-          "Gases para siderurgia, fundição, fornos de arco elétrico, afinação do aço e hidrometalurgia.",
-      },
-    },
-  },
-  {
-    slug: "quimica",
-    name: "Química",
-    detail: {
-      summary: "Matérias-primas, inertização e arrefecimento de reatores.",
-      intro:
-        "Na indústria química, os gases são simultaneamente matéria-prima e meio de controlo de processo.",
-      applications: [
-        {
-          title: "Síntese",
-          body: "O hidrogénio é um componente principal na produção de amoníaco e de metanol.",
-        },
         {
           title: "Inertização",
-          body: "Inertização de processos químicos.",
+          body: "Azoto, dióxido de carbono e árgon evitam atmosferas explosivas no armazenamento e embalagem de produtos inflamáveis e protegem produtos sensíveis da oxidação, da humidade e dos micróbios.",
         },
         {
-          title: "Arrefecimento de reatores",
-          body: "Arrefecimento de reatores com recurso a gases industriais.",
+          title: "Congelação e refrigeração",
+          body: "Dióxido de carbono e azoto para congelação e refrigeração de alimentos, incluindo uva e mosto nas vindimas.",
         },
         {
-          title: "Farmacêutica e cosmética",
-          body: "O hidrogénio é utilizado na produção de vitaminas e de produtos cosméticos.",
+          title: "Transporte a temperatura controlada",
+          body: "Transporte de alimentos ou medicamentos a temperatura controlada.",
+        },
+        {
+          title: "Água potável e engarrafada",
+          body: "Ozono e ácido carbónico no tratamento de água potável e de água engarrafada, e na desinfeção de garrafas.",
         },
       ],
-      substances: ["hydrogen", "nitrogen"],
-      categories: ["gases-industriais"],
+      substances: ["nitrogen", "carbon-dioxide", "argon", "ozone"],
+      categories: ["gases-alimentares", "gas-ambiente"],
       seo: {
-        title: "Química",
+        title: "Indústria Alimentar e Bebidas",
         description:
-          "Gases para síntese de amoníaco e metanol, inertização e arrefecimento de reatores.",
+          "Gases para inertização, congelação, refrigeração, transporte a temperatura controlada e tratamento de água potável em Angola.",
       },
     },
   },
-  { slug: "reciclagem", name: "Reciclagem" },
+  { slug: "aquicultura", name: "Aquicultura" },
   {
-    slug: "soldadura",
-    name: "Soldadura",
+    slug: "hospitais-clinicas",
+    name: "Hospitais e Clínicas",
     detail: {
-      summary: "Gases de proteção, gases combustíveis e misturas de soldadura.",
+      summary: "Gases medicinais e redes de gases medicinais para unidades de saúde.",
       intro:
-        "A qualidade de uma soldadura depende da proteção do banho de fusão e da estabilidade do arco. A gama inclui gases puros e misturas desenvolvidas para soldadura e corte.",
+        "Os cuidados ao doente dependem da pureza do gás ao longo de toda a rede e da continuidade do fornecimento na tomada. A rede leva o gás desde a fonte, no exterior da unidade de saúde, até às enfermarias, blocos operatórios e salas de recobro.",
       applications: [
         {
-          title: "Gases de proteção",
-          body: "O árgon é utilizado como gás de proteção em processos de soldadura.",
+          title: "Oxigenoterapia",
+          body: "Oxigénio medicinal para oxigenoterapia aguda ou crónica, em forma líquida, em quadros ou em garrafas.",
         },
         {
-          title: "Misturas de soldadura",
-          body: "O hidrogénio é componente de misturas para soldadura de metais. A gama de misturas de gases industriais inclui ARCO, HELARCO, HIDARG e HIDAZO, entre outras.",
+          title: "Gases medicinais",
+          body: "Protóxido de azoto, ar sintético, azoto medicinal, Carbox e dióxido de carbono medicinal.",
         },
         {
-          title: "Soldadura e corte com acetileno",
-          body: "O acetileno é utilizado em soldadura e corte. A sua chama atinge a temperatura mais elevada entre os gases combustíveis.",
+          title: "Redes à medida",
+          body: "Montagem de redes de gases medicinais adaptadas às necessidades de cada clínica ou hospital.",
+        },
+        {
+          title: "Manutenção e formação",
+          body: "Manutenção, auditoria das redes e formação das equipas.",
         },
       ],
-      substances: ["argon", "acetylene", "oxygen", "hydrogen"],
-      categories: ["gases-industriais"],
+      substances: [
+        "oxygen",
+        "nitrous-oxide",
+        "medical-air",
+        "nitrogen",
+        "carbox",
+        "carbon-dioxide",
+      ],
+      categories: ["gases-medicinais"],
       seo: {
-        title: "Soldadura",
-        description: "Gases de proteção, acetileno e misturas para soldadura e corte de metais.",
+        title: "Hospitais e Clínicas",
+        description:
+          "Gases medicinais e redes de gases medicinais para hospitais e clínicas em Angola: oxigenoterapia, projeto, instalação e manutenção.",
       },
     },
   },
-  { slug: "transportes", name: "Transportes" },
-  { slug: "vidro", name: "Vidro" },
+  {
+    slug: "metalomecanica-soldadura",
+    name: "Metalomecânica e Soldadura",
+    detail: {
+      summary: "Gases e misturas para soldadura MIG/MAG e TIG, corte por plasma e oxicorte.",
+      intro:
+        "A qualidade da soldadura depende da proteção do banho de fusão e da estabilidade do arco. A gama de gases e misturas cobre aços ao carbono, aços de baixa liga e aços inoxidáveis.",
+      applications: [
+        {
+          title: "Aços ao carbono",
+          body: "Misturas Arco 8, Arco 20, Arco T5 e Arco T12 para MIG/MAG, consoante a espessura e o modo de transferência.",
+        },
+        {
+          title: "Aços inoxidáveis",
+          body: "Helarco para MIG/MAG, com maior velocidade de soldadura e bom aspeto do cordão.",
+        },
+        {
+          title: "TIG",
+          body: "Árgon puro e misturas Helar 5, Helar 30 e Hidarg.",
+        },
+        {
+          title: "Corte",
+          body: "Azoto e misturas com hidrogénio para corte por plasma; acetileno para oxicorte.",
+        },
+      ],
+      substances: ["argon", "carbon-dioxide", "nitrogen", "acetylene"],
+      categories: ["gases-soldadura-corte"],
+      seo: {
+        title: "Metalomecânica e Soldadura",
+        description:
+          "Gases e misturas para soldadura MIG/MAG e TIG, corte por plasma e oxicorte, para aços ao carbono e inoxidáveis.",
+      },
+    },
+  },
+  { slug: "petroleo-gas", name: "Petróleo e Gás" },
+  {
+    slug: "tratamento-aguas",
+    name: "Tratamento de Águas e Ambiente",
+    detail: {
+      summary: "Ozono para tratamento de águas, controlo de odores e águas residuais.",
+      intro:
+        "O ozono é um oxidante e desinfetante forte. Elimina bactérias e vírus e, ao decompor-se em oxigénio, não deixa resíduos nem satura os meios tratados com químicos indesejados.",
+      applications: [
+        {
+          title: "Água para consumo",
+          body: "Tratamento de água para consumo humano e de água engarrafada.",
+        },
+        {
+          title: "Controlo de odores",
+          body: "Controlo de odores em estações de tratamento de águas residuais e em matadouros.",
+        },
+        {
+          title: "Águas residuais",
+          body: "Tratamento de águas residuais por oxidação, sem odores.",
+        },
+        {
+          title: "Aquários e bivalves",
+          body: "Tratamento de água em aquários e depuração de bivalves.",
+        },
+      ],
+      substances: ["ozone", "carbon-dioxide"],
+      categories: ["gas-ambiente"],
+      seo: {
+        title: "Tratamento de Águas e Ambiente",
+        description:
+          "Ozono para tratamento de água potável e engarrafada, controlo de odores em ETAR e matadouros e tratamento de águas residuais.",
+      },
+    },
+  },
 ];
 
 export function getIndustry(slug: string): Industry | undefined {

@@ -7,40 +7,31 @@ export type SubstanceId =
   | "acetylene"
   | "argon"
   | "carbon-dioxide"
-  | "helium"
-  | "hydrogen"
+  | "carbox"
   | "medical-air"
   | "nitrogen"
   | "nitrous-oxide"
   | "oxygen"
-  | "sulfur-dioxide";
+  | "ozone"
+  | "propane";
 
 export type ProductCategorySlug =
-  | "gases-industriais"
+  | "gases-soldadura-corte"
   | "gases-alimentares"
   | "gases-medicinais"
-  | "gases-especiais"
-  | "gases-dispositivo-medico"
-  | "gelo-seco";
+  | "gas-ambiente"
+  | "gas-propano";
 
 export type IndustrySlug =
-  | "agricultura-pecuaria-pescas"
-  | "alimentar"
-  | "ambiente"
-  | "construcao"
-  | "eletronica-telecomunicacoes"
-  | "farmaceutica"
-  | "laboratorios"
-  | "lazer"
-  | "metalomecanica"
-  | "metalurgia"
-  | "quimica"
-  | "reciclagem"
-  | "soldadura"
-  | "transportes"
-  | "vidro";
+  | "petroleo-gas"
+  | "hospitais-clinicas"
+  | "alimentar-bebidas"
+  | "metalomecanica-soldadura"
+  | "tratamento-aguas"
+  | "aquicultura";
 
-export type SupplyModeId = "cylinders" | "bulk" | "on-site" | "equipment" | "telemetry";
+export type SupplyModeId =
+  "cylinders" | "liquid" | "industrial-networks" | "medical-networks" | "welding-equipment";
 
 export interface SeoFields {
   title: string;
@@ -62,8 +53,16 @@ export interface ProductItem {
   description?: string;
   /** Regulatory note shown prominently, e.g. prescription-only medicine. */
   notice?: string;
-  /** False for products not supplied in cylinders (cryogenic liquids, dry ice): hides the EN 1089-3 colour. */
+  /** False for products not supplied in cylinders (liquids, on-site ozone, LPG): hides the EN 1089-3 colour. */
   cylinder?: boolean;
+}
+
+export interface MixtureEntry {
+  name: string;
+  composition?: string;
+  /** Classification, e.g. "ISO 14175 M21". */
+  standard?: string;
+  use?: string;
 }
 
 export interface ProductCategory {
@@ -76,7 +75,7 @@ export interface ProductCategory {
   mixtures?: {
     title: string;
     description: string;
-    names: string[];
+    entries: MixtureEntry[];
   };
   applications: TitledText[];
   regulatory?: string[];
@@ -114,25 +113,9 @@ export interface NewsArticle {
   summary: string;
   body: string[];
   facts?: Array<{ label: string; value: string }>;
-  /** Publication date if confirmed (ISO 8601). Omitted when unknown. */
-  publishedAt?: string;
+  /** Confirmed publication or event date as shown to readers (e.g. "Junho de 2023"). Omitted when unknown. */
+  dateLabel?: string;
   seo: SeoFields;
-}
-
-export type DistributorKind = "sede" | "ponto" | "fabrica" | "escritorio";
-
-export interface DistributorLocation {
-  locality: string;
-  area: string;
-  name?: string;
-  kind: DistributorKind;
-}
-
-export interface DistributorRegion {
-  id: "pt" | "es";
-  country: string;
-  description: string;
-  locations: DistributorLocation[];
 }
 
 export interface Certification {
@@ -141,6 +124,8 @@ export interface Certification {
   issuer?: string;
   /** Only certifications with documentary confirmation are rendered. */
   verified: boolean;
+  issued?: string;
+  documentUrl?: string;
 }
 
 export interface NavItem {

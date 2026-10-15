@@ -6,9 +6,9 @@ import type { ProductCategorySlug } from "@/types/content";
 export const contactSubjects: Array<{ value: ContactSubject; label: string }> = [
   { value: "proposta", label: "Pedido de proposta comercial" },
   { value: "informacao-tecnica", label: "Informação técnica" },
-  { value: "fds", label: "Pedido de Ficha de Dados de Segurança" },
-  { value: "distribuicao", label: "Rede de distribuição" },
-  { value: "saude", label: "Gases medicinais e saúde" },
+  { value: "redes", label: "Projeto de redes de gases" },
+  { value: "saude", label: "Gases medicinais" },
+  { value: "soldadura", label: "Soldadura e corte" },
   { value: "outro", label: "Outro assunto" },
 ];
 
@@ -18,12 +18,11 @@ const subjectValues = contactSubjects.map((subject) => subject.value) as [
 ];
 
 const productValues = [
-  "gases-industriais",
+  "gases-soldadura-corte",
   "gases-alimentares",
   "gases-medicinais",
-  "gases-especiais",
-  "gases-dispositivo-medico",
-  "gelo-seco",
+  "gas-ambiente",
+  "gas-propano",
 ] as const satisfies readonly ProductCategorySlug[];
 
 // Allows international formats: digits, spaces, +, parentheses, dots and hyphens.

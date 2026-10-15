@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleAlert, CircleCheck, LoaderCircle } from "lucide-react";
 
-import { siteConfig } from "@/config/site";
+import { primaryPhone, siteConfig } from "@/config/site";
 import { productCategories } from "@/content/pt/products";
 import { routes } from "@/lib/routes";
 import { cn } from "@/lib/utils";
@@ -339,7 +339,8 @@ export function ContactForm() {
 }
 
 function ErrorMessage({ code }: { code: Extract<Status, { state: "error" }>["code"] }) {
-  const { email, phones } = siteConfig.contact;
+  const { email } = siteConfig.contact;
+  const phone = primaryPhone;
   const fallback = (
     <>
       Contacte-nos diretamente para{" "}
@@ -347,8 +348,8 @@ function ErrorMessage({ code }: { code: Extract<Status, { state: "error" }>["cod
         {email}
       </a>{" "}
       ou pelo{" "}
-      <a href={phones[0].href} className="font-medium underline">
-        {phones[0].display}
+      <a href={phone.href} className="font-medium underline">
+        {phone.display}
       </a>
       .
     </>

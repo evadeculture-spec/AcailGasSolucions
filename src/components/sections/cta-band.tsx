@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { siteConfig } from "@/config/site";
+import { primaryPhone } from "@/config/site";
 import { routes } from "@/lib/routes";
 
 interface CtaBandProps {
@@ -15,10 +15,10 @@ interface CtaBandProps {
 export function CtaBand({
   eyebrow = "Contacto",
   title = "Fale com a nossa equipa.",
-  body = "Para pedidos de proposta, informação técnica ou Fichas de Dados de Segurança, envie-nos uma mensagem ou contacte diretamente a sede.",
+  body = "Para pedidos de proposta, informação técnica ou documentação técnica, envie-nos uma mensagem ou contacte diretamente a fábrica de gases.",
   primary = { label: "Enviar pedido", href: routes.contact },
 }: CtaBandProps) {
-  const phone = siteConfig.contact.phones[0];
+  const phone = primaryPhone;
   return (
     <section
       className="dark-surface relative overflow-hidden bg-blue-600"
@@ -44,7 +44,6 @@ export function CtaBand({
             <a href={phone.href} className="font-medium text-white underline underline-offset-4">
               {phone.display}
             </a>
-            <span className="block text-xs text-blue-100/80">{siteConfig.contact.phoneNotice}</span>
           </p>
         </div>
       </Container>
